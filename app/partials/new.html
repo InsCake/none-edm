@@ -1,9 +1,9 @@
 <section>
 	<table ng-repeat="floor in floors" border="1">
 		<tr>
-			<td ng-repeat="room in rooms">
+			<td ng-repeat="room in floor.rooms">
 				<table>
-					<tr ng-repeat="row in rows">
+					<tr ng-repeat="row in floor.rows">
 						<td border="1">{{floor.id}}-{{room.id}}-{{row.id}}</td>
 					</tr>
 				</table>
@@ -15,6 +15,5 @@
 	<button ng-click="newFloor()">添加一行</button>
 	<input type="number" ng-model="roomQuantity">
 	<input type="number" ng-model="rowQuantity">
-	{{$scope.floor.id}}
 </aside>
 
