@@ -2,11 +2,12 @@
 	<table ng-repeat="floor in floors" border="1">
 		<tr>
 			<td ng-repeat="room in floor.rooms">
-				<table>
-					<tr ng-repeat="row in floor.rows">
-						<td border="1">{{floor.id}}-{{room.id}}-{{row.id}}</td>
+				<!--{<table>
+					<tr>
+						<td border="1">{{floor.id}}-{{room.id}}</td>
 					</tr>
-				</table>
+				</table>}-->
+				<roomspace roomtemp="{{roomtemp}}"></roomspace>
 			</td>
 		</tr>
 	</table>
@@ -14,6 +15,9 @@
 <aside>
 	<button ng-click="newFloor()">添加一行</button>
 	<input type="number" ng-model="roomQuantity">
-	<input type="number" ng-model="rowQuantity">
+	<select ng-model="{{roomtemp}}">
+		<option>roomA0</option>
+	</select>
+	<!--<input type="number" ng-model="rowQuantity">-->
 </aside>
 
