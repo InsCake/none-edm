@@ -4,13 +4,32 @@
 
 var noneEDMControllers = angular.module('noneEDM.controllers', []);
 
-noneEDMControllers.controller('MyCtrl1', [
+noneEDMControllers.controller('newEDMCtrl', ['$scope',
 
-	function () {
+	function ($scope) {
+		$scope.rooms = [
+			{
+				name: 'haha'
+			},
+			{
+				name: 'haha'
+			}
+		];
 
+		$scope.putFloorIntoBuilding = function () {
+			var floor = {
+				dom: document.getElementById('previewFloor'),
+				html: document.getElementById('previewFloor').innerHTML,
+				id: document.getElementById('previewFloor').children[0].title
+			};
+
+			function isFloorExist() {
+				var existFloorId = document.getElementById('previewBuilding')
+			}
+		};
   }]);
 
-noneEDMControllers.controller('newEDMCtrl', ['$scope',
+noneEDMControllers.controller('newEDMCtrl2', ['$scope',
 
 	function ($scope) {
 		//游标

@@ -10,7 +10,7 @@ angular.module('noneEDM', [
   'noneEDM.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/new', {templateUrl: 'partials/new.html', controller: 'newEDMCtrl'});
+  $routeProvider.when('/theNewOne', {templateUrl: 'partials/theNewOne.html', controller: 'newEDMCtrl'});
+  $routeProvider.when('/new', {templateUrl: 'partials/new.html', controller: 'newEDMCtrl2'});
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
