@@ -1,47 +1,57 @@
-<div class="flexBox">
+<div class="theNewEdm">
 
-    <!-- 左侧编辑区 -->
-    <div class="box_flex_0" style="width:660px;" ng-controller="editor">
+    <!-- action bar -->
+    <nav class="action_bar">
+        <button class="putFloorIntoBuilding" ng-click="putFloorIntoBuilding()" ng-show="isFloorFocus">-》</button>
+        <button class="" ng-click="" ng-hide="isFloorFocus">《-</button>
+    </nav>
 
-        <!-- 单层可视编辑区 -->
-        <section id="previewFloor">
-            <table class="floor_3">
+
+    <div class="flexBox">
+
+        <!-- 左侧编辑区 -->
+        <div class="box_flex_0" id="eidtor" ng-controller="editor">
+
+            <!-- 单层可视编辑区 -->
+            <section id="previewFloor">
+                <table class="floor_3">
+                    <tr>
+                        <td>
+                            <img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg">
+                        </td>
+                        <td>
+                            <img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- 单层参数编辑区 -->
+            <section>
+
+            </section>
+
+        </div>
+
+        <!-- 右侧预览区 -->
+        <section id="previewBuilding" class="box_flex_0" ng-controller="preview">
+
+            <table class="floor_1" ng-click="toggleMoveFloorBtn($event)">
                 <tr>
-                    <td>
-                        <img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg">
-                    </td>
                     <td>
                         <img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg">
                     </td>
                 </tr>
             </table>
-        </section>
+            <table class="floor_2" ng-click="toggleMoveFloorBtn($event)">
+                <tr>
+                    <td>
+                        <img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg">
+                    </td>
+                </tr>
+            </table>
 
-        <!-- 单层参数编辑区 -->
-        <section>
-            <button ng-click="putFloorIntoBuilding()">-》</button>
         </section>
 
     </div>
-
-    <!-- 右侧预览区 -->
-    <section id="previewBuilding" class="box_flex_0" style="width:660px;">
-
-        <table class="floor_1">
-            <tr>
-                <td>
-                    <img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg">
-                </td>
-            </tr>
-        </table>
-        <table class="floor_2">
-            <tr>
-                <td>
-                    <img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg">
-                </td>
-            </tr>
-        </table>
-
-    </section>
-
 </div>

@@ -4,33 +4,18 @@
 
 var noneEDMControllers = angular.module('noneEDM.controllers', []);
 
-noneEDMControllers.controller('newEDMCtrl', ['$scope',
-
+//globel-controller
+noneEDMControllers.controller('golbelCtrl', ['$scope',
     function($scope) {
-        /*$scope.rooms = [
-            {
-                name: 'haha'
-            },
-            {
-                name: 'haha'
-            }
-        ];
-
-        $scope.putFloorIntoBuilding = function () {
-            var floor = {
-                dom: document.getElementById('previewFloor'),
-                html: document.getElementById('previewFloor').innerHTML,
-                id: document.getElementById('previewFloor').children[0].title
-            };
-
-            function isFloorExist() {
-                var existFloorId = document.getElementById('previewBuilding')；
-            }
-        };*/
+        $scope.documentClick = function() {
+            $scope.$broadcast('to-child-documentClick');
+        };
     }
+
 ]);
 
-noneEDMControllers.controller('editor', ['$scope',
+//新的EDM-controller
+noneEDMControllers.controller('newEDMCtrl', ['$scope',
     function($scope) {
 
         var building = document.getElementById('previewBuilding');
@@ -66,6 +51,33 @@ noneEDMControllers.controller('editor', ['$scope',
             }
             return -1;
         }
+
+        //显示或隐藏移动楼层按钮
+        $scope.isFloorFocus = true;
+        $scope.toggleMoveFloorBtn = function(e) {
+            e.stopPropagation();
+            $scope.isFloorFocus = false;
+        };
+        $scope.$on('to-child-documentClick', function(e) {
+            $scope.isFloorFocus = true;
+        });
+    }
+]);
+
+//左侧编辑器-controller
+noneEDMControllers.controller('editor', ['$scope',
+    function($scope) {
+
+
+    }
+]);
+
+//右侧预览-contraller
+noneEDMControllers.controller('preview', ['$scope',
+    function($scope) {
+
+
+
     }
 ]);
 
