@@ -1,0 +1,26 @@
+
+/* common --------------------------------------------- by lizhehao -------- */
+body            { background-color: #f3f3f3; }
+.none           { display:none; }
+
+/* box 模型*/
+.cssBorder-box  { -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+.flexBox        { display:moz-box; display:-webkit-box; display:-webkit-flex; display:flex; }
+.box_flex_0     { -moz-box-flex:0.0; -webkit-box-flex:0.0; -webkit-flex:none; flex:none; }
+.box_flex_1     { -moz-box-flex:1.0; -webkit-box-flex:1.0; -webkit-flex:1; flex:1; width:100%; }
+
+
+/* page - new --------------------------------------------------------------- */
+/* container */
+.new_edm            { padding-top: 50px; width: 980px; margin: 0 auto; }
+
+/* action_bar */
+.action_bar         { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 1px 2px #bbb; margin-bottom: 20px; background-color: #444; }
+.action_bar button  { border: none; background-color: #373737; color: #fff; }
+
+/* sidebar */
+.sidebar            { position: fixed; top:36px; right: 0; width: 320px; }
+.control_panel      { box-shadow: 0 1px 3px #bbb; width: 100%; min-height: 500px; }
+
+.stage              { box-shadow: 0 2px 25px #bbb; margin-left: 1%; width: 650px; min-height: 200px; overflow-x: hidden; background-color: #f3f3f3; }
+.stage > table      { background-color: #fff; margin: 0 auto; font-size: 12px; font-family: arial; color: #333; }
