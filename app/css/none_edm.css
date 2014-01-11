@@ -17,10 +17,18 @@ body            { background-color: #f3f3f3; }
 /* action_bar */
 .action_bar         { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 1px 2px #bbb; margin-bottom: 20px; background-color: #444; }
 .action_bar button  { border: none; background-color: #373737; color: #fff; }
+.action_bar .remFloor-btn	{ position: absolute;  left: 50%; margin-left: -40px; display: none; }
 
 /* sidebar */
 .sidebar            { position: fixed; top:36px; right: 0; width: 320px; }
 .control_panel      { box-shadow: 0 1px 3px #bbb; width: 100%; min-height: 500px; }
 
+/* modal */
+.modal .newFloor_modal     	{ width: 800px; }
+.modal .cfmRemFloor_modal	{ width: 692px; }
+.modal .cfmRemFloor_modal .floorToRemove	{ width: 650px; overflow-x: hidden; }
+
 .stage              { box-shadow: 0 2px 25px #bbb; margin-left: 1%; width: 650px; min-height: 200px; overflow-x: hidden; background-color: #f3f3f3; }
 .stage > table      { background-color: #fff; margin: 0 auto; font-size: 12px; font-family: arial; color: #333; }
+
+.stage .actived		{ outline: 1px dotted #c00; }

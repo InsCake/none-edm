@@ -16,23 +16,27 @@
 
     <div class="new_edm">
 
-        <nav class="action_bar btn-group">
-            <button type="button" class="btn btn-default">1</button>
-            <button type="button" id="newFloor_btn" class="btn btn-default" data-target="#myModal">+1</button>
 
+        <nav class="action_bar">
             <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Dropdown
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Dropdown link</a>
-                    </li>
-                    <li><a href="#">Dropdown link</a>
-                    </li>
-                </ul>
+                <button type="button" class="btn btn-default">代码</button>
+                <button type="button" id="newFloor_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-newFloor">层 +1</button>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        Dropdown
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Dropdown link</a>
+                        </li>
+                        <li><a href="#">Dropdown link</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
+
+            <button type="button" class="btn btn-default remFloor-btn">删除这层</button>
         </nav>
 
         <!-- sidebar -->
@@ -49,7 +53,7 @@
             <!-- 头部 vvvvvvvvvvvvvvvvvvvvvv -->
 
             <div class="edm_page">
-                <table cellspacing="0" cellpadding="0" style="width:100%">
+                <table cellspacing="0" cellpadding="0" style="width:100%" class="floor">
                     <tr>
                         <td>
                             <a href="#">
@@ -84,8 +88,74 @@
         </div>
     </div>
 
-    
 
+    <!-- Modal newFloor_modal -->
+    <div class="modal fade" id="modal-newFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog newFloor_modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">添加一层</h3>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 flooe-tp" id="tp1">
+                            <a href="javascript:void();" class="thumbnail">
+                                <img src="img/floor_tp1.png" alt="...">
+                            </a>
+                            <div class="caption">
+                                <h4>4个房间</h4>
+                                <!-- <p>...</p> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 flooe-tp" id="tp2">
+                            <a href="javascript:void();" class="thumbnail">
+                                <img src="img/floor_tp2.png" alt="...">
+                            </a>
+                            <div class="caption">
+                                <h4>3个房间</h4>
+                                <!-- <p>...</p> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 flooe-tp" id="tp3">
+                            <a href="javascript:void();" class="thumbnail">
+                                <img src="img/floor_tp1.png" alt="...">
+                            </a>
+                            <div class="caption">
+                                <h4>4个房间</h4>
+                                <!-- <p>...</p> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- Modal cfm-remFloor_modal -->
+    <div class="modal fade" id="modal-cfmRemFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cfmRemFloor_modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                        <h4>确认要移除这一层吗？</h4>
+                        <div class="floorToRemove"></div>
+                        <!-- <p>...</p> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" id="delFloor-btn">删除</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>
