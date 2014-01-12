@@ -16,7 +16,7 @@
 
     <div class="new_edm">
 
-
+        <!-- action_bar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <nav class="action_bar">
             <div class="btn-group">
                 <button type="button" class="btn btn-default">代码</button>
@@ -39,18 +39,70 @@
             <button type="button" class="btn btn-default remFloor-btn">删除这层</button>
         </nav>
 
-        <!-- sidebar -->
+        <!-- sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <aside class="sidebar">
-            <div class="control_panel"></div>
+            <div class="control_panel">
+                <div>
+                <!-- tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_editFloor" data-toggle="pill">装修楼层</a>
+                    </li>
+                    <li><a href="#tab_editRoom" data-toggle="pill">装修房间</a>
+                    </li>
+                </ul>
+                <!-- tab-content -->
+                <div class="tab-content">
+                    <span class="glyphicon glyphicon-stats"></span>
+                    <!-- 装修楼层 -->
+                    <form class="form-horizontal tab-pane fade in active" id="tab_editFloor" role="form">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">FloorID</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control input-sm" id="inputPassword3" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox">Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-default">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- 装修房间 -->
+                    <form class="form-horizontal tab-pane fade" id="tab_editRoom" role="form">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </aside>
 
+        <!-- stage ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="stage">
 
-            <!-- 头部 ^^^^^^^^^^^^^^^^^^^^^^ -->
+            <!-- 头部 -->
             <div>
                 <img src="img/edm_header.png">
             </div>
-            <!-- 头部 vvvvvvvvvvvvvvvvvvvvvv -->
+            <!-- 头部 -->
 
             <div class="edm_page">
                 <table cellspacing="0" cellpadding="0" style="width:100%" class="floor">
@@ -79,17 +131,17 @@
                 </table>
             </div>
 
-            <!-- 尾部 ^^^^^^^^^^^^^^^^^^^^^^ -->
+            <!-- 尾部 -->
             <div>
                 <img src="img/edm_footer.png">
             </div>
-            <!-- 尾部 vvvvvvvvvvvvvvvvvvvvvv-->
+            <!-- 尾部 -->
 
         </div>
     </div>
 
 
-    <!-- Modal newFloor_modal -->
+    <!-- Modal newFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="modal fade" id="modal-newFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog newFloor_modal">
             <div class="modal-content">
@@ -137,14 +189,14 @@
     </div>
     <!-- /.modal -->
 
-    <!-- Modal cfm-remFloor_modal -->
+    <!-- Modal cfm-remFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="modal fade" id="modal-cfmRemFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog cfmRemFloor_modal">
             <div class="modal-content">
                 <div class="modal-body">
-                        <h4>确认要移除这一层吗？</h4>
-                        <div class="floorToRemove"></div>
-                        <!-- <p>...</p> -->
+                    <h4>确认要移除这一层吗？</h4>
+                    <div class="floorToRemove"></div>
+                    <!-- <p>...</p> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
