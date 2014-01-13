@@ -11,7 +11,8 @@ $(function() {
     // document event --------------------------------------------------------------------
     $(document).on('click', function() {
         $('.remFloor-btn').hide(); // 隐藏层删除按钮
-        $('.floor').removeClass('actived');
+        $('.floor').removeClass('floor-actived');
+        $('.room').removeClass('room-actived');
     });
 
 
@@ -24,12 +25,13 @@ $(function() {
             $('.action_bar').on('click', '.remFloor-btn', function(e) { // 点击删除这层
                 e.stopPropagation();
                 $('#modal-cfmRemFloor').modal('toggle');
-                var clone_floorToRemove = $('.stage .actived').clone();
+                var clone_floorToRemove = $('.stage .floor-actived').clone();
                 $('#modal-cfmRemFloor .floorToRemove').html('').append(clone_floorToRemove);
             });
         }
     };
     action_bar.isDelActivedFloor(); // 弹出模态窗以确认是否删除激活层
+
 
 
     // modal object --------------------------------------------------------------------
@@ -45,21 +47,58 @@ $(function() {
     modal.selectNewFloor();
     $('.cfmRemFloor_modal').on('click', '#delFloor-btn', function() {
         $('#modal-cfmRemFloor').modal('hide');
-        $('.stage .actived').remove();
+        $('.stage .floor-actived').remove();
     });
 
+    // sidebar --------------------------------------------------------------------
+    var sidebar = {
+        editRoom: {}, // 子集-房间编辑器
+    };
 
-    // stage object --------------------------------------------------------------------
-    var stage = {
-        doActiveFloor: function() {
-            $('.stage').on('click', '.floor', function(e) {
-                e.stopPropagation();
-                $('.floor').removeClass('actived');
-                $(this).addClass('actived');
-                action_bar.showRemFloorBtn();
+    sidebar.editRoom = { // 子集-房间编辑器
+        refreshImgRul: function() {
+            $('.sidebar').on('click', '#tab_editRoom .edit_image-url-btn', function() {
+                var newSrc = $('#room-img-url').val();
+                $('.room-actived img[alt=item-image]').attr('src', newSrc);
             });
         }
     };
-    stage.doActiveFloor();
+    sidebar.editRoom.refreshImgRul();
+
+    // stage object --------------------------------------------------------------------
+    var stage = {
+        doActiveFloor: function() { // 激活被点击的层，并做出响应动作
+            $('.stage').on('click', '.floor', function(e) {
+                e.stopPropagation();
+                $('.floor').removeClass('floor-actived');
+                $(this).addClass('floor-actived');
+                action_bar.showRemFloorBtn(); // 显示层删除按钮
+                stage.showEditFloor(); // 显示仪表盘
+                $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
+            });
+        },
+        showEditFloor: function() { // 显示仪表盘
+            $('.control_panel .dashboard').show('500');
+            $('.control_panel .fa-tachometer').css({
+                'top': '95%',
+                'color': '#eee'
+            });
+        },
+        doActiveRoom: function() { // 激活被点击的层
+            $('.stage').on('click', '.room', function(e) {
+                $('.room').removeClass('room-actived');
+                $(this).addClass('room-actived');
+            });
+        },
+        doDblClickRoom: function() { // 双击层，并做出响应动作
+            $('.stage').on('dblclick', '.room', function(e) {
+                e.stopPropagation();
+                $('.dashboard .nav-tabs a[href="#tab_editRoom"]').tab('show'); // 激活房间楼层面板
+            });
+        }
+    };
+    stage.doActiveFloor(); // 激活被点击的层
+    stage.doActiveRoom(); // 激活被点击的房间
+    stage.doDblClickRoom(); // 双击房间，并做出响应动作
 
 });

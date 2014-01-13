@@ -9,6 +9,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/none_edm.css">
 </head>
 
@@ -19,7 +20,9 @@
         <!-- action_bar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <nav class="action_bar">
             <div class="btn-group">
-                <button type="button" class="btn btn-default">代码</button>
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-code"></i> 
+                </button>
                 <button type="button" id="newFloor_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-newFloor">层 +1</button>
 
                 <div class="btn-group">
@@ -42,57 +45,49 @@
         <!-- sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <aside class="sidebar">
             <div class="control_panel">
-                <div>
-                <!-- tabs -->
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_editFloor" data-toggle="pill">装修楼层</a>
-                    </li>
-                    <li><a href="#tab_editRoom" data-toggle="pill">装修房间</a>
-                    </li>
-                </ul>
-                <!-- tab-content -->
-                <div class="tab-content">
-                    <span class="glyphicon glyphicon-stats"></span>
-                    <!-- 装修楼层 -->
-                    <form class="form-horizontal tab-pane fade in active" id="tab_editFloor" role="form">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">FloorID</label>
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control input-sm" id="inputPassword3" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Remember me
-                                    </label>
+                <!-- 仪表盘icon -->
+                <i class="fa fa-tachometer"></i>
+                <div class="dashboard">
+                    <!-- tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_editFloor" data-toggle="pill">装修楼层</a>
+                        </li>
+                        <li><a href="#tab_editRoom" data-toggle="pill">装修房间</a>
+                        </li>
+                    </ul>
+                    <!-- tab-content -->
+                    <div class="tab-content">
+                        <!-- 装修楼层 -->
+                        <form class="form-horizontal tab-pane fade in active" id="tab_editFloor" role="form">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">FloorID</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" class="btn btn-default">Sign in</button>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control input-sm" id="inputPassword3" placeholder="Password">
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <!-- 装修房间 -->
-                    <form class="form-horizontal tab-pane fade" id="tab_editRoom" role="form">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
+                        </form>
+                        <!-- 装修房间 -->
+                        <form class="form-horizontal tab-pane fade" id="tab_editRoom" role="form">
+                            <!-- image url -->
+                            <div class="form-group edit_image-url">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Image Url</label>
+                                <div class="input-group col-sm-9">
+                                    <input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i>
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
         </aside>
 
         <!-- stage ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -108,24 +103,48 @@
                 <table cellspacing="0" cellpadding="0" style="width:100%" class="floor">
                     <tr>
                         <td>
-                            <a href="#">
-                                <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161">
-                            </a>
+                            <table cellspacing="0" cellpadding="0" class="room">
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void();">
+                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161" alt="item-image">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td>
-                            <a href="#">
-                                <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="163" height="161">
-                            </a>
+                            <table cellspacing="0" cellpadding="0" class="room">
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void();">
+                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161" alt="item-image">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td>
-                            <a href="#">
-                                <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="163" height="161">
-                            </a>
+                            <table cellspacing="0" cellpadding="0" class="room">
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void();">
+                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161" alt="item-image">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td>
-                            <a href="#">
-                                <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161">
-                            </a>
+                            <table cellspacing="0" cellpadding="0" class="room">
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void();">
+                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161" alt="item-image">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
@@ -138,83 +157,83 @@
             <!-- 尾部 -->
 
         </div>
-    </div>
+        </div>
 
 
-    <!-- Modal newFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div class="modal fade" id="modal-newFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog newFloor_modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="modal-title" id="myModalLabel">添加一层</h3>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col-sm-6 col-md-4 flooe-tp" id="tp1">
-                            <a href="javascript:void();" class="thumbnail">
-                                <img src="img/floor_tp1.png" alt="...">
-                            </a>
-                            <div class="caption">
-                                <h4>4个房间</h4>
-                                <!-- <p>...</p> -->
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 flooe-tp" id="tp2">
-                            <a href="javascript:void();" class="thumbnail">
-                                <img src="img/floor_tp2.png" alt="...">
-                            </a>
-                            <div class="caption">
-                                <h4>3个房间</h4>
-                                <!-- <p>...</p> -->
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 flooe-tp" id="tp3">
-                            <a href="javascript:void();" class="thumbnail">
-                                <img src="img/floor_tp1.png" alt="...">
-                            </a>
-                            <div class="caption">
-                                <h4>4个房间</h4>
-                                <!-- <p>...</p> -->
-                            </div>
-                        </div>
+        <!-- Modal newFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="modal fade" id="modal-newFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog newFloor_modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModalLabel">添加一层</h3>
                     </div>
+                    <div class="modal-body">
 
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4 flooe-tp" id="tp1">
+                                <a href="javascript:void();" class="thumbnail">
+                                    <img src="img/floor_tp1.png" alt="...">
+                                </a>
+                                <div class="caption">
+                                    <h4>4个房间</h4>
+                                    <!-- <p>...</p> -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4 flooe-tp" id="tp2">
+                                <a href="javascript:void();" class="thumbnail">
+                                    <img src="img/floor_tp2.png" alt="...">
+                                </a>
+                                <div class="caption">
+                                    <h4>3个房间</h4>
+                                    <!-- <p>...</p> -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4 flooe-tp" id="tp3">
+                                <a href="javascript:void();" class="thumbnail">
+                                    <img src="img/floor_tp1.png" alt="...">
+                                </a>
+                                <div class="caption">
+                                    <h4>4个房间</h4>
+                                    <!-- <p>...</p> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+        <!-- /.modal -->
 
-    <!-- Modal cfm-remFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div class="modal fade" id="modal-cfmRemFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog cfmRemFloor_modal">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h4>确认要移除这一层吗？</h4>
-                    <div class="floorToRemove"></div>
-                    <!-- <p>...</p> -->
+        <!-- Modal cfm-remFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="modal fade" id="modal-cfmRemFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cfmRemFloor_modal">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4>确认要移除这一层吗？</h4>
+                        <div class="floorToRemove"></div>
+                        <!-- <p>...</p> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger" id="delFloor-btn">删除</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-danger" id="delFloor-btn">删除</button>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+        <!-- /.modal -->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
-    </script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/edm_new.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+        </script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/edm_new.js"></script>
 
 </body>
 
