@@ -57,21 +57,19 @@
                     </ul>
                     <!-- tab-content -->
                     <div class="tab-content">
+
                         <!-- 装修楼层 -->
                         <form class="form-horizontal tab-pane fade in active" id="tab_editFloor" role="form">
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-3 control-label">FloorID</label>
+                            <!-- room template -->
+                            <div class="form-group edit_room-tp">
+                                <label for="inputEmail3" class="col-sm-3 control-label">房间模板</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control input-sm" id="inputPassword3" placeholder="Password">
+                                    <a href="#" class="thumbnail"><img src="" class="room-tp_img"></a>
+                                    <!-- <input type="email" class="form-control input-sm" id="inputEmail3" placeholder="Email"> -->
                                 </div>
                             </div>
                         </form>
+
                         <!-- 装修房间 -->
                         <form class="form-horizontal tab-pane fade" id="tab_editRoom" role="form">
                             <!-- image url -->
@@ -86,6 +84,7 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
         </aside>
@@ -103,7 +102,7 @@
                 <table cellspacing="0" cellpadding="0" style="width:100%" class="floor">
                     <tr>
                         <td>
-                            <table cellspacing="0" cellpadding="0" class="room">
+                            <table cellspacing="0" cellpadding="0" class="room room_tp1">
                                 <tr>
                                     <td>
                                         <a href="javascript:void();">
@@ -114,7 +113,7 @@
                             </table>
                         </td>
                         <td>
-                            <table cellspacing="0" cellpadding="0" class="room">
+                            <table cellspacing="0" cellpadding="0" class="room room_tp1">
                                 <tr>
                                     <td>
                                         <a href="javascript:void();">
@@ -125,7 +124,7 @@
                             </table>
                         </td>
                         <td>
-                            <table cellspacing="0" cellpadding="0" class="room">
+                            <table cellspacing="0" cellpadding="0" class="room room_tp1">
                                 <tr>
                                     <td>
                                         <a href="javascript:void();">
@@ -136,7 +135,7 @@
                             </table>
                         </td>
                         <td>
-                            <table cellspacing="0" cellpadding="0" class="room">
+                            <table cellspacing="0" cellpadding="0" class="room room_tp1">
                                 <tr>
                                     <td>
                                         <a href="javascript:void();">
@@ -156,7 +155,6 @@
             </div>
             <!-- 尾部 -->
 
-        </div>
         </div>
 
 
@@ -228,7 +226,7 @@
         </div>
         <!-- /.modal -->
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
         <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
         </script>

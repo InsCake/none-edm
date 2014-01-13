@@ -29,6 +29,9 @@ body            { background-color: #f3f3f3; }
 .control_panel .form-group .input-group { padding-left: 15px; padding-right: 15px; }
 .control_panel .form-group .icn-btn     { line-height: 16px; }
 .control_panel .form-group .icn-btn i   { font-size: 16px; }
+
+#tab_editFloor .room-tp_img				{ min-height: 80px; max-height: 120px; }
+
 /* modal */
 .modal .newFloor_modal     	{ width: 800px; }
 .modal .cfmRemFloor_modal	{ width: 692px; }

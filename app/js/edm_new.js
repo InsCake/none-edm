@@ -6,6 +6,10 @@ $(function() {
         '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor"><tr><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td></tr></table>',
         '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor"><tr><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="216" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td></tr></table>'
     ];
+    var room_tps = [{
+        tpContent: '',
+        tpId: 'img/room_tp1.png'
+    }];
 
 
     // document event --------------------------------------------------------------------
@@ -52,10 +56,33 @@ $(function() {
 
     // sidebar --------------------------------------------------------------------
     var sidebar = {
+        editFloor: {}, // 子集-楼层编辑器
         editRoom: {}, // 子集-房间编辑器
+        stopPropa: function() { // 阻止冒泡
+            $('.sidebar').on('click', function(e) {
+                e.stopPropagation();
+            });
+        },
+        switchEditTabs: function() { // 切换tab
+            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editFloor]', function() {
+                $(this).tab('show'); // 激活装修楼层面板
+            });
+            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editRoom]', function() {
+                $(this).tab('show'); // 激活装修楼层面板
+            });
+        }
+    };
+    sidebar.stopPropa(); // 阻止冒泡
+    sidebar.switchEditTabs(); // 切换tab
+
+    sidebar.editFloor = { // 子集-楼层编辑器 -------------
+        refreshDashboard: function() { // 更新仪表盘参数
+            var tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(7) - 1; // 获取tp相关类名的序号
+            $('#tab_editFloor .room-tp_img').attr('src', room_tps[tpCount].tpId); // 更新src
+        }
     };
 
-    sidebar.editRoom = { // 子集-房间编辑器
+    sidebar.editRoom = { // 子集-房间编辑器 -------------
         refreshImgRul: function() {
             $('.sidebar').on('click', '#tab_editRoom .edit_image-url-btn', function() {
                 var newSrc = $('#room-img-url').val();
@@ -64,6 +91,7 @@ $(function() {
         }
     };
     sidebar.editRoom.refreshImgRul();
+
 
     // stage object --------------------------------------------------------------------
     var stage = {
@@ -74,6 +102,7 @@ $(function() {
                 $(this).addClass('floor-actived');
                 action_bar.showRemFloorBtn(); // 显示层删除按钮
                 stage.showEditFloor(); // 显示仪表盘
+                sidebar.editFloor.refreshDashboard(); // 更新仪表盘参数
                 $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
             });
         },
