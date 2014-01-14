@@ -41,7 +41,7 @@ $(function() {
     // modal object --------------------------------------------------------------------
     var modal = {
         selectNewFloor: function() { // 选择要新增一层的模板
-            $('.newFloor_modal').on('click', '.flooe-tp', function() {
+            $('.newFloor_modal').on('click', '.floor-tp', function() {
                 var tpIndex = $(this).attr('id').slice(2) - 1;
                 edm_page.append(floor_tps[tpIndex]);
                 $('#modal-newFloor').modal('hide');
@@ -53,6 +53,7 @@ $(function() {
         $('#modal-cfmRemFloor').modal('hide');
         $('.stage .floor-actived').remove();
     });
+
 
     // sidebar --------------------------------------------------------------------
     var sidebar = {
@@ -79,8 +80,14 @@ $(function() {
         refreshDashboard: function() { // 更新仪表盘参数
             var tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(7) - 1; // 获取tp相关类名的序号
             $('#tab_editFloor .room-tp_img').attr('src', room_tps[tpCount].tpId); // 更新src
+        },
+        showRoomTpModal: function() { // 显示房间模板弹窗
+            $('.sidebar').on('click', '#tab_editFloor .room-tp_a', function() {
+                $('#modal-changeRoom').modal('toggle')
+            });
         }
     };
+    sidebar.editFloor.showRoomTpModal();
 
     sidebar.editRoom = { // 子集-房间编辑器 -------------
         refreshImgRul: function() {
