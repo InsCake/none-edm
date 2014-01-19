@@ -37,6 +37,7 @@ body            { background-color: #f3f3f3; }
 .modal .cfmRemFloor_modal	{ width: 692px; }
 .modal .cfmRemFloor_modal .floorToRemove	{ width: 650px; overflow-x: hidden; }
 
+/* stage */
 .stage              { box-shadow: 0 2px 25px #bbb; margin-left: 1%; width: 650px; min-height: 200px; overflow-x: hidden; background-color: #fff; }
 .stage > table      { background-color: #fff; margin: 0 auto; font-size: 12px; font-family: arial; color: #333; }
 

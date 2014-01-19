@@ -2,13 +2,31 @@ $(function() {
 
     var edm_page = $('.stage .edm_page'); //edm container
 
+    // templates --------------------------------------------------------------------
     var floor_tps = [ // floors templates
-        '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor"><tr><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="162" height="161"></a></td></tr></table>',
+        '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_0101"><tr><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td></tr></table>',
         '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor"><tr><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="216" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td></tr></table>'
     ];
-    var room_tps = [{
-        tpContent: '',
+    var room_tps = [{ // room templates
+        tpContent: '<table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr></table>',
         tpId: 'img/room_tp1.png'
+    }];
+
+    var sidebar_floorEditor = { // sidebar templates ------------
+        'cate_goods': [],
+        'cate_banner': []
+    };
+    sidebar_floorEditor.cate_goods = [{ // 商品类楼层
+        'id': '1',
+        'name': 'edit_room-tp',
+        'title': '房间模板',
+        'content': '<div class="form-group edit_room-tp"><label for="inputEmail3" class="col-sm-3 control-label">房间模板</label><div class="col-sm-9"><a class="thumbnail room-tp_a" href="#modal-changeRoom" data-toggle="modal"><img src="" class="room-tp_img"></a></div></div>'
+    }];
+    sidebar_floorEditor.cate_banner = [{ // banner类楼层
+        'id': '1',
+        'name': 'edit_image-url',
+        'title': 'banner image url',
+        'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
     }];
 
 
@@ -37,25 +55,7 @@ $(function() {
     action_bar.isDelActivedFloor(); // 弹出模态窗以确认是否删除激活层
 
 
-
-    // modal object --------------------------------------------------------------------
-    var modal = {
-        selectNewFloor: function() { // 选择要新增一层的模板
-            $('.newFloor_modal').on('click', '.floor-tp', function() {
-                var tpIndex = $(this).attr('id').slice(2) - 1;
-                edm_page.append(floor_tps[tpIndex]);
-                $('#modal-newFloor').modal('hide');
-            });
-        }
-    };
-    modal.selectNewFloor();
-    $('.cfmRemFloor_modal').on('click', '#delFloor-btn', function() {
-        $('#modal-cfmRemFloor').modal('hide');
-        $('.stage .floor-actived').remove();
-    });
-
-
-    // sidebar --------------------------------------------------------------------
+    // sidebar object --------------------------------------------------------------------
     var sidebar = {
         editFloor: {}, // 子集-楼层编辑器
         editRoom: {}, // 子集-房间编辑器
@@ -76,28 +76,69 @@ $(function() {
     sidebar.stopPropa(); // 阻止冒泡
     sidebar.switchEditTabs(); // 切换tab
 
-    sidebar.editFloor = { // 子集-楼层编辑器 -------------
-        refreshDashboard: function() { // 更新仪表盘参数
-            var tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(7) - 1; // 获取tp相关类名的序号
-            $('#tab_editFloor .room-tp_img').attr('src', room_tps[tpCount].tpId); // 更新src
-        },
+    sidebar.editFloor = { // 子集-楼层编辑器 -----------------------
         showRoomTpModal: function() { // 显示房间模板弹窗
-            $('.sidebar').on('click', '#tab_editFloor .room-tp_a', function() {
-                $('#modal-changeRoom').modal('toggle')
+            $('.sidebar').on('click', '.dashboard .room-tp_a', function() {
+                $('#modal-changeRoom').modal('toggle');
             });
+        },
+        getFloorTpName: function(floor_tpCount) {
+            var floorCateCount = floor_tpCount.slice(0, 2);
+            switch (floorCateCount) {
+                case '01':
+                    return 'cate_goods';
+                    break;
+                case '02':
+                    return 'cate_banner';
+                    break;
+            }
         }
     };
     sidebar.editFloor.showRoomTpModal();
 
-    sidebar.editRoom = { // 子集-房间编辑器 -------------
-        refreshImgRul: function() {
-            $('.sidebar').on('click', '#tab_editRoom .edit_image-url-btn', function() {
+    sidebar.editRoom = { // 子集-房间编辑器 ----------------------
+        changeImgUrl: function() { // 修改图片
+            $('.sidebar').on('click', '.dashboard .edit_image-url-btn', function() {
                 var newSrc = $('#room-img-url').val();
                 $('.room-actived img[alt=item-image]').attr('src', newSrc);
             });
         }
     };
-    sidebar.editRoom.refreshImgRul();
+    sidebar.editRoom.changeImgUrl();
+
+    sidebar.editRefresher = { // 子集-侧边栏刷新器 -----------------------
+        refreshDashboard: function() { // 更新仪表盘
+            var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
+            var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
+
+            sidebar.editRefresher.refreshDashboardTp(floorTpName); // 更新仪表盘模板
+            sidebar.editRefresher.refreshDashboardPara(floorTpName); // 更新仪表盘参数
+
+////
+            var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(7) - 1; // 获取房间tp相关类名的序号
+            $('#tab_editFloor .room-tp_img').attr('src', room_tps[room_tpCount].tpId); // 更新src
+        },
+        refreshDashboardTp: function(floorTpName) { // 更新仪表盘模板
+
+            $('#tab_editFloor').html('');
+            for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
+                $('#tab_editFloor').append(sidebar_floorEditor[floorTpName][i].content);
+            }
+        },
+        refreshDashboardPara: function(floorTpName) { // 更新仪表盘参数 ***
+            for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
+                switch (sidebar_floorEditor[floorTpName][i].name) {
+                    case 'edit_image-url':
+                        sidebar.editRefresher.refreshImgUrl();
+                        break;
+                }
+            }
+        },
+        refreshImgUrl: function() { // 刷新图片地址
+            var activePara = $('.stage .room-actived img[alt=item-image]').attr('src');
+            $('.dashboard #room-img-url').val(activePara);
+        }
+    };
 
 
     // stage object --------------------------------------------------------------------
@@ -109,7 +150,7 @@ $(function() {
                 $(this).addClass('floor-actived');
                 action_bar.showRemFloorBtn(); // 显示层删除按钮
                 stage.showEditFloor(); // 显示仪表盘
-                sidebar.editFloor.refreshDashboard(); // 更新仪表盘参数
+                sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
                 $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
             });
         },
@@ -133,8 +174,42 @@ $(function() {
             });
         }
     };
-    stage.doActiveFloor(); // 激活被点击的层
     stage.doActiveRoom(); // 激活被点击的房间
+    stage.doActiveFloor(); // 激活被点击的层
     stage.doDblClickRoom(); // 双击房间，并做出响应动作
+
+
+    // modal object --------------------------------------------------------------------
+    var modal = {
+        stopPropa: function() { // 阻止冒泡
+            $('.modal').on('click', function(e) {
+                e.stopPropagation();
+            });
+        },
+        selectNewFloorTp: function() { // 选择要新增一层的模板
+            $('.newFloor_modal').on('click', '.floor-tp > a', function() {
+                var tpIndex = $(this).parent().attr('id').slice(8) - 1;
+                edm_page.append(floor_tps[tpIndex]);
+                $('#modal-newFloor').modal('hide');
+            });
+        },
+        changeRoomsTp: function() { // 选择要替换的整层房间模板
+            $('#modal-changeRoom').on('click', '.room-tp > a', function() {
+                var tpIndex = $(this).parent().attr('id').slice(7) - 1;
+                $('.floor-actived .room').replaceWith(room_tps[tpIndex].tpContent);
+                $('#modal-changeRoom').modal('hide');
+            });
+        },
+        delFloor: function() { // 删除当前层
+            $('.cfmRemFloor_modal').on('click', '#delFloor-btn', function() {
+                $('#modal-cfmRemFloor').modal('hide');
+                $('.stage .floor-actived').remove();
+            });
+        }
+    };
+    modal.stopPropa(); // 阻止冒泡
+    modal.selectNewFloorTp(); // 选择要新增一层的模板
+    modal.changeRoomsTp(); // 选择要替换的整层房间模板
+    modal.delFloor(); // 删除当前层
 
 });
