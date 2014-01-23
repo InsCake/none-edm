@@ -4,12 +4,15 @@ $(function() {
 
     // templates --------------------------------------------------------------------
     var floor_tps = [ // floors templates
-        '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_0101"><tr><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td></tr></table>',
+        '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_0101"><tr><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td></tr></table>',
         '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor"><tr><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="216" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td></tr></table>'
     ];
     var room_tps = [{ // room templates
-        tpContent: '<table cellspacing="0" cellpadding="0" class="room room_tp1"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr></table>',
-        tpId: 'img/room_tp1.png'
+        tpContent: '<table cellspacing="0" cellpadding="0" class="room room_tp_0101"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr></table>',
+        tpSrc: 'img/room_tp1.png'
+    }, {
+        tpContent: '<table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table>',
+        tpSrc: 'img/room_tp2.png'
     }];
 
     var sidebar_floorEditor = { // sidebar templates ------------
@@ -108,35 +111,41 @@ $(function() {
 
     sidebar.editRefresher = { // 子集-侧边栏刷新器 -----------------------
         refreshDashboard: function() { // 更新仪表盘
+
+            sidebar.editRefresher.refreshDashboardTp(); // 更新仪表盘模板
+            sidebar.editRefresher.refreshDashboardPara(); // 更新仪表盘参数
+        },
+        refreshDashboardTp: function() { // 更新仪表盘模板
             var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
             var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
-
-            sidebar.editRefresher.refreshDashboardTp(floorTpName); // 更新仪表盘模板
-            sidebar.editRefresher.refreshDashboardPara(floorTpName); // 更新仪表盘参数
-
-////
-            var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(7) - 1; // 获取房间tp相关类名的序号
-            $('#tab_editFloor .room-tp_img').attr('src', room_tps[room_tpCount].tpId); // 更新src
-        },
-        refreshDashboardTp: function(floorTpName) { // 更新仪表盘模板
 
             $('#tab_editFloor').html('');
             for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
                 $('#tab_editFloor').append(sidebar_floorEditor[floorTpName][i].content);
             }
         },
-        refreshDashboardPara: function(floorTpName) { // 更新仪表盘参数 ***
+        refreshDashboardPara: function() { // 更新仪表盘参数 ***
+            var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
+            var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
+
             for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
                 switch (sidebar_floorEditor[floorTpName][i].name) {
                     case 'edit_image-url':
-                        sidebar.editRefresher.refreshImgUrl();
+                        sidebar.editRefresher.refreshImgUrl(); // 刷新主图片地址
+                        break;
+                    case 'edit_room-tp':
+                        sidebar.editRefresher.refreshRoomTp(); // 更新模版示意图片
                         break;
                 }
             }
         },
-        refreshImgUrl: function() { // 刷新图片地址
+        refreshImgUrl: function() { // 刷新主图片地址
             var activePara = $('.stage .room-actived img[alt=item-image]').attr('src');
             $('.dashboard #room-img-url').val(activePara);
+        },
+        refreshRoomTp: function() { // 更新模版示意图片
+            var activePara = $('.stage .room-actived ').attr('class').split(' ')[1].slice(11) - 1; // 获取房间tp相关类名的序号
+            $('#tab_editFloor .room-tp_img').attr('src', room_tps[activePara].tpSrc); // 更新src
         }
     };
 
@@ -150,8 +159,8 @@ $(function() {
                 $(this).addClass('floor-actived');
                 action_bar.showRemFloorBtn(); // 显示层删除按钮
                 stage.showEditFloor(); // 显示仪表盘
-                sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
                 $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
+                sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
             });
         },
         showEditFloor: function() { // 显示仪表盘
@@ -193,10 +202,13 @@ $(function() {
                 $('#modal-newFloor').modal('hide');
             });
         },
-        changeRoomsTp: function() { // 选择要替换的整层房间模板
+        changeRoomsTp: function() { // 选择要替换的整层房间模板，保持房间激活
             $('#modal-changeRoom').on('click', '.room-tp > a', function() {
+                var room_active_index = $('.room-actived').parent().index();
                 var tpIndex = $(this).parent().attr('id').slice(7) - 1;
                 $('.floor-actived .room').replaceWith(room_tps[tpIndex].tpContent);
+                $('.floor-actived').children().children().children().eq(room_active_index).children().addClass('room-actived'); // 保持房间激活
+                sidebar.editRefresher.refreshDashboardPara(); // 更新仪表盘参数
                 $('#modal-changeRoom').modal('hide');
             });
         },
