@@ -15,7 +15,12 @@ $(function() {
         tpSrc: 'img/room_tp2.png'
     }];
 
-    var sidebar_floorEditor = { // sidebar templates ------------
+    // sidebar templates ---------------
+    var sidebar_floorEditor = {
+        'cate_goods': [],
+        'cate_banner': []
+    };
+    var sidebar_roomEditor = {
         'cate_goods': [],
         'cate_banner': []
     };
@@ -31,6 +36,14 @@ $(function() {
         'title': 'banner image url',
         'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
     }];
+    sidebar_roomEditor.cate_goods = [{ // 商品类房间
+        'id': '1',
+        'name': 'edit_image-url',
+        'title': 'banner image url',
+        'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
+    }];
+
+
 
 
     // document event --------------------------------------------------------------------
@@ -105,38 +118,68 @@ $(function() {
                 var newSrc = $('#room-img-url').val();
                 $('.room-actived img[alt=item-image]').attr('src', newSrc);
             });
+        },
+        getRoomTpName: function(room_tpCount) {
+            var roomCateCount = room_tpCount.slice(0, 2);
+            switch (roomCateCount) {
+                case '01':
+                    return 'cate_goods';
+                    break;
+                case '02':
+                    return 'cate_banner';
+                    break;
+            }
         }
     };
     sidebar.editRoom.changeImgUrl();
 
     sidebar.editRefresher = { // 子集-侧边栏刷新器 -----------------------
         refreshDashboard: function() { // 更新仪表盘
-
-            sidebar.editRefresher.refreshDashboardTp(); // 更新仪表盘模板
-            sidebar.editRefresher.refreshDashboardPara(); // 更新仪表盘参数
+            sidebar.editRefresher.refreshDashboardFloorTp(); // 更新仪表盘模板
+            sidebar.editRefresher.refreshDashboardRoomTp();
+            sidebar.editRefresher.refreshDashboardFloorPara(); // 更新仪表盘参数
+            sidebar.editRefresher.refreshDashboardRoomPara();
         },
-        refreshDashboardTp: function() { // 更新仪表盘模板
+        refreshDashboardFloorTp: function() { // 更新仪表盘模板
+            // 刷新楼层编辑器
             var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
             var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
-
             $('#tab_editFloor').html('');
             for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
                 $('#tab_editFloor').append(sidebar_floorEditor[floorTpName][i].content);
             }
         },
-        refreshDashboardPara: function() { // 更新仪表盘参数 ***
+        refreshDashboardRoomTp: function() { // 更新仪表盘模板
+            // 刷新房间编辑器
+            var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(8, 10);
+            var roomTpName = sidebar.editRoom.getRoomTpName(room_tpCount);
+            $('#tab_editRoom').html('');
+            for (var i = 0; i < sidebar_roomEditor[roomTpName].length; i++) {
+                $('#tab_editRoom').append(sidebar_roomEditor[roomTpName][i].content);
+            }
+        },
+        refreshDashboardFloorPara: function() { // 更新仪表盘参数 ***
             var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
             var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
-
             for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
-                switch (sidebar_floorEditor[floorTpName][i].name) {
-                    case 'edit_image-url':
-                        sidebar.editRefresher.refreshImgUrl(); // 刷新主图片地址
-                        break;
-                    case 'edit_room-tp':
-                        sidebar.editRefresher.refreshRoomTp(); // 更新模版示意图片
-                        break;
-                }
+                sidebar.editRefresher.doSwitchRefreshWhich(sidebar_floorEditor[floorTpName][i]); // 分支判断具体刷新那个参数
+            }
+        },
+        refreshDashboardRoomPara: function() {
+            var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(8, 10);
+            var roomTpName = sidebar.editRoom.getRoomTpName(room_tpCount);
+            for (var i = 0; i < sidebar_roomEditor[roomTpName].length; i++) {
+                sidebar.editRefresher.doSwitchRefreshWhich(sidebar_roomEditor[roomTpName][i]); // 分支判断具体刷新那个参数
+            }
+        },
+        doSwitchRefreshWhich: function(tName) { // 分支判断具体刷新那个参数
+            switch (tName.name) {
+                case 'edit_image-url':
+                    sidebar.editRefresher.refreshImgUrl(); // 刷新主图片地址
+                    break;
+                case 'edit_room-tp':
+                    sidebar.editRefresher.refreshRoomTp(); // 更新模版示意图片
+                    break;
             }
         },
         refreshImgUrl: function() { // 刷新主图片地址
@@ -154,13 +197,21 @@ $(function() {
     var stage = {
         doActiveFloor: function() { // 激活被点击的层，并做出响应动作
             $('.stage').on('click', '.floor', function(e) {
+                if(stage.timer){
+                    clearTimeout(stage.timer);
+                    stage.timer = null;
+                }
                 e.stopPropagation();
+                e.preventDefault();
                 $('.floor').removeClass('floor-actived');
                 $(this).addClass('floor-actived');
                 action_bar.showRemFloorBtn(); // 显示层删除按钮
-                stage.showEditFloor(); // 显示仪表盘
-                $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
-                sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
+                stage.timer = setTimeout(function() {
+                    stage.showEditFloor(); // 显示仪表盘
+                    sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
+                    $('tab_editRoom').hide();
+                    $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
+                }, 200);
             });
         },
         showEditFloor: function() { // 显示仪表盘
@@ -172,6 +223,7 @@ $(function() {
         },
         doActiveRoom: function() { // 激活被点击的层
             $('.stage').on('click', '.room', function(e) {
+                e.preventDefault();
                 $('.room').removeClass('room-actived');
                 $(this).addClass('room-actived');
             });
@@ -179,6 +231,13 @@ $(function() {
         doDblClickRoom: function() { // 双击层，并做出响应动作
             $('.stage').on('dblclick', '.room', function(e) {
                 e.stopPropagation();
+                e.preventDefault();
+                if(stage.timer){
+                    console.log(stage.timer);
+                    clearTimeout(stage.timer);
+                    stage.timer = null;
+                }
+                $('tab_editFloor').hide();
                 $('.dashboard .nav-tabs a[href="#tab_editRoom"]').tab('show'); // 激活房间楼层面板
             });
         }
@@ -208,7 +267,7 @@ $(function() {
                 var tpIndex = $(this).parent().attr('id').slice(7) - 1;
                 $('.floor-actived .room').replaceWith(room_tps[tpIndex].tpContent);
                 $('.floor-actived').children().children().children().eq(room_active_index).children().addClass('room-actived'); // 保持房间激活
-                sidebar.editRefresher.refreshDashboardPara(); // 更新仪表盘参数
+                sidebar.editRefresher.refreshDashboardFloorPara(); // 更新仪表盘参数
                 $('#modal-changeRoom').modal('hide');
             });
         },
