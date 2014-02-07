@@ -70,9 +70,19 @@ $(function() {
                 var clone_floorToRemove = $('.stage .floor-actived').clone();
                 $('#modal-cfmRemFloor .floorToRemove').html('').append(clone_floorToRemove);
             });
+        },
+        getJsonTest: function() {
+            $('#getJsonTest').click(function() {
+                $.getJSON('./template/floorTps.json', function(data) {
+                    $.each(data.items, function(i, field) {
+                        alert();
+                    });
+                });
+            });
         }
     };
     action_bar.isDelActivedFloor(); // 弹出模态窗以确认是否删除激活层
+    action_bar.getJsonTest();
 
 
     // sidebar object --------------------------------------------------------------------
@@ -85,10 +95,12 @@ $(function() {
             });
         },
         switchEditTabs: function() { // 切换tab
-            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editFloor]', function() {
+            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editFloor]', function(e) {
+                e.preventDefault();
                 $(this).tab('show'); // 激活装修楼层面板
             });
-            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editRoom]', function() {
+            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editRoom]', function(e) {
+                e.preventDefault();
                 $(this).tab('show'); // 激活装修楼层面板
             });
         }
