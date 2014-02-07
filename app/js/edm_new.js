@@ -197,7 +197,7 @@ $(function() {
     var stage = {
         doActiveFloor: function() { // 激活被点击的层，并做出响应动作
             $('.stage').on('click', '.floor', function(e) {
-                if(stage.timer){
+                if (stage.timer) {
                     clearTimeout(stage.timer);
                     stage.timer = null;
                 }
@@ -209,9 +209,8 @@ $(function() {
                 stage.timer = setTimeout(function() {
                     stage.showEditFloor(); // 显示仪表盘
                     sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
-                    $('tab_editRoom').hide();
                     $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
-                }, 200);
+                }, 250);
             });
         },
         showEditFloor: function() { // 显示仪表盘
@@ -232,13 +231,13 @@ $(function() {
             $('.stage').on('dblclick', '.room', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
-                if(stage.timer){
-                    console.log(stage.timer);
+                if (stage.timer) {
                     clearTimeout(stage.timer);
                     stage.timer = null;
+                    stage.showEditFloor(); // 显示仪表盘
+                    sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
+                    $('.dashboard .nav-tabs a[href="#tab_editRoom"]').tab('show'); // 激活房间楼层面板
                 }
-                $('tab_editFloor').hide();
-                $('.dashboard .nav-tabs a[href="#tab_editRoom"]').tab('show'); // 激活房间楼层面板
             });
         }
     };
