@@ -16,7 +16,7 @@ $(function() {
     }];
 
     // sidebar templates ---------------
-    var sidebar_floorEditor = {
+    /*var sidebar_floorEditor = {
         'cate_goods': [],
         'cate_banner': []
     };
@@ -30,18 +30,22 @@ $(function() {
         'title': '房间模板',
         'content': '<div class="form-group edit_room-tp"><label for="inputEmail3" class="col-sm-3 control-label">房间模板</label><div class="col-sm-9"><a class="thumbnail room-tp_a" href="#modal-changeRoom" data-toggle="modal"><img src="" class="room-tp_img"></a></div></div>'
     }];
-    sidebar_floorEditor.cate_banner = [{ // banner类楼层
-        'id': '1',
-        'name': 'edit_image-url',
-        'title': 'banner image url',
-        'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
-    }];
+    sidebar_floorEditor.cate_banner = [ // banner类楼层
+
+    ];
     sidebar_roomEditor.cate_goods = [{ // 商品类房间
         'id': '1',
         'name': 'edit_image-url',
         'title': 'banner image url',
         'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
     }];
+    sidebar_roomEditor.cate_banner = [{ // banner类房间
+        'id': '1',
+        'name': 'edit_image-url',
+        'title': 'banner image url',
+        'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
+    }];*/
+
 
 
 
@@ -145,8 +149,8 @@ $(function() {
             var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
             var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
             $('#tab_editFloor').html('');
-            for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
-                $('#tab_editFloor').append(sidebar_floorEditor[floorTpName][i].content);
+            for (var i = 0; i < golbalTp.sidebar_floorEditor[floorTpName].length; i++) {
+                $('#tab_editFloor').append(golbalTp.sidebar_floorEditor[floorTpName][i].content);
             }
         },
         refreshDashboardRoomTp: function() { // 更新仪表盘模板
@@ -154,22 +158,22 @@ $(function() {
             var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(8, 10);
             var roomTpName = sidebar.editRoom.getRoomTpName(room_tpCount);
             $('#tab_editRoom').html('');
-            for (var i = 0; i < sidebar_roomEditor[roomTpName].length; i++) {
-                $('#tab_editRoom').append(sidebar_roomEditor[roomTpName][i].content);
+            for (var i = 0; i < golbalTp.sidebar_roomEditor[roomTpName].length; i++) {
+                $('#tab_editRoom').append(golbalTp.sidebar_roomEditor[roomTpName][i].content);
             }
         },
         refreshDashboardFloorPara: function() { // 更新仪表盘参数 ***
             var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
             var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
-            for (var i = 0; i < sidebar_floorEditor[floorTpName].length; i++) {
-                sidebar.editRefresher.doSwitchRefreshWhich(sidebar_floorEditor[floorTpName][i]); // 分支判断具体刷新那个参数
+            for (var i = 0; i < golbalTp.sidebar_floorEditor[floorTpName].length; i++) {
+                sidebar.editRefresher.doSwitchRefreshWhich(golbalTp.sidebar_floorEditor[floorTpName][i]); // 分支判断具体刷新那个参数
             }
         },
         refreshDashboardRoomPara: function() {
             var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(8, 10);
             var roomTpName = sidebar.editRoom.getRoomTpName(room_tpCount);
-            for (var i = 0; i < sidebar_roomEditor[roomTpName].length; i++) {
-                sidebar.editRefresher.doSwitchRefreshWhich(sidebar_roomEditor[roomTpName][i]); // 分支判断具体刷新那个参数
+            for (var i = 0; i < golbalTp.sidebar_roomEditor[roomTpName].length; i++) {
+                sidebar.editRefresher.doSwitchRefreshWhich(golbalTp.sidebar_roomEditor[roomTpName][i]); // 分支判断具体刷新那个参数
             }
         },
         doSwitchRefreshWhich: function(tName) { // 分支判断具体刷新那个参数
@@ -205,6 +209,7 @@ $(function() {
                 e.preventDefault();
                 $('.floor').removeClass('floor-actived');
                 $(this).addClass('floor-actived');
+                stage.showEditFloor(); // 显示仪表盘
                 action_bar.showRemFloorBtn(); // 显示层删除按钮
                 stage.timer = setTimeout(function() {
                     stage.showEditFloor(); // 显示仪表盘
