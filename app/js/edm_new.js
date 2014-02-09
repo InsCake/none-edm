@@ -12,6 +12,11 @@ $(function() {
 
     // action_bar object --------------------------------------------------------------------
     var action_bar = {
+        stopPropa: function() { // 阻止冒泡
+            $('.action_bar').on('click', function(e) {
+                e.stopPropagation();
+            });
+        },
         showRemFloorBtn: function() { // 显示层删除按钮
             $('.remFloor-btn').show();
         },
@@ -22,9 +27,16 @@ $(function() {
                 var clone_floorToRemove = $('.stage .floor-actived').clone();
                 $('#modal-cfmRemFloor .floorToRemove').html('').append(clone_floorToRemove);
             });
+        },
+        showNewFloorModal: function() { // 显示新建楼层弹窗
+            $('.action_bar').on('click', '#newFloor_btn', function() {
+                $('#modal-newFloor').modal('toggle');
+            });
         }
     };
+    action_bar.stopPropa(); // 阻止冒泡
     action_bar.isDelActivedFloor(); // 弹出模态窗以确认是否删除激活层
+    action_bar.showNewFloorModal(); // 显示新建楼层弹窗
 
 
     // sidebar object --------------------------------------------------------------------
@@ -208,7 +220,7 @@ $(function() {
     // modal object --------------------------------------------------------------------
     var modal = {
         stopPropa: function() { // 阻止冒泡
-            $('.modal').on('click', function(e) {
+            $('#modal-cfmRemFloor').add($('#modal-changeRoom')).on('click', function(e) {
                 e.stopPropagation();
             });
         },
@@ -240,5 +252,5 @@ $(function() {
     modal.selectNewFloorTp(); // 选择要新增一层的模板
     modal.changeRoomsTp(); // 选择要替换的整层房间模板
     modal.delFloor(); // 删除当前层
-    
+
 });

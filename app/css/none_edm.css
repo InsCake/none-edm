@@ -1,5 +1,5 @@
 
-/* common --------------------------------------------- by lizhehao -------- */
+/* common --------------------------------------------- by 不一 -------- */
 body            { background-color: #f3f3f3; }
 .none           { display:none; }
 
@@ -36,6 +36,10 @@ body            { background-color: #f3f3f3; }
 .modal .newFloor_modal     	{ width: 800px; }
 .modal .cfmRemFloor_modal	{ width: 692px; }
 .modal .cfmRemFloor_modal .floorToRemove	{ width: 650px; overflow-x: hidden; }
+
+.modal #newFloor_collapse .panel-heading		{ padding: 0; }
+.modal #newFloor_collapse .panel-title > a		{ display: block; height: 100%; cursor: pointer; padding: 10px 15px; text-decoration: none; }
+.modal #newFloor_collapse .panel-title > a:hover{ background-color: #eee; }
 
 /* stage */
 .stage              { box-shadow: 0 2px 25px #bbb; margin-left: 1%; width: 650px; min-height: 200px; overflow-x: hidden; background-color: #fff; }
