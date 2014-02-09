@@ -2,54 +2,6 @@ $(function() {
 
     var edm_page = $('.stage .edm_page'); //edm container
 
-    // templates --------------------------------------------------------------------
-    var floor_tps = [ // floors templates
-        '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_0101"><tr><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td><td><table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table></td></tr></table>',
-        '<table cellspacing="0" cellpadding="0" style="width:100%" class="floor"><tr><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="216" height="217"></a></td><td><a href="#"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="217" height="217"></a></td></tr></table>'
-    ];
-    var room_tps = [{ // room templates
-        tpContent: '<table cellspacing="0" cellpadding="0" class="room room_tp_0101"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr></table>',
-        tpSrc: 'img/room_tp1.png'
-    }, {
-        tpContent: '<table cellspacing="0" cellpadding="0" class="room room_tp_0102"><tr><td width="5"></td><td><a href="javascript:void();"><img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="display:block;line-height:100%;" border="0" width="152" height="151" alt="item-image"></a></td><td width="5"></td></tr><tr><td width="5"></td><td style="vertical-align:top;" height="36px"><a href="#" style="text-decoration:none;color:#333;"><span style="display:block;height:36px;overflow:hidden;font-size:12px;max-height:36px;line-height:18px;">蓝钻石蜜烤风味巴旦木仁美国大杏仁 扁桃仁</span></a></td><td width="5"></td></tr></table>',
-        tpSrc: 'img/room_tp2.png'
-    }];
-
-    // sidebar templates ---------------
-    /*var sidebar_floorEditor = {
-        'cate_goods': [],
-        'cate_banner': []
-    };
-    var sidebar_roomEditor = {
-        'cate_goods': [],
-        'cate_banner': []
-    };
-    sidebar_floorEditor.cate_goods = [{ // 商品类楼层
-        'id': '1',
-        'name': 'edit_room-tp',
-        'title': '房间模板',
-        'content': '<div class="form-group edit_room-tp"><label for="inputEmail3" class="col-sm-3 control-label">房间模板</label><div class="col-sm-9"><a class="thumbnail room-tp_a" href="#modal-changeRoom" data-toggle="modal"><img src="" class="room-tp_img"></a></div></div>'
-    }];
-    sidebar_floorEditor.cate_banner = [ // banner类楼层
-
-    ];
-    sidebar_roomEditor.cate_goods = [{ // 商品类房间
-        'id': '1',
-        'name': 'edit_image-url',
-        'title': 'banner image url',
-        'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
-    }];
-    sidebar_roomEditor.cate_banner = [{ // banner类房间
-        'id': '1',
-        'name': 'edit_image-url',
-        'title': 'banner image url',
-        'content': '<div class="form-group edit_image-url"><label for="inputEmail3" class="col-sm-3 control-label">Image Url</label><div class="input-group col-sm-9"><input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址"><span class="input-group-btn"><button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i></button></span></div></div>'
-    }];*/
-
-
-
-
-
     // document event --------------------------------------------------------------------
     $(document).on('click', function() {
         $('.remFloor-btn').hide(); // 隐藏层删除按钮
@@ -85,10 +37,12 @@ $(function() {
             });
         },
         switchEditTabs: function() { // 切换tab
-            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editFloor]', function() {
+            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editFloor]', function(e) {
+                e.preventDefault();
                 $(this).tab('show'); // 激活装修楼层面板
             });
-            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editRoom]', function() {
+            $('.sidebar').on('click', '.dashboard .nav-tabs a[href=#tab_editRoom]', function(e) {
+                e.preventDefault();
                 $(this).tab('show'); // 激活装修楼层面板
             });
         }
@@ -192,7 +146,7 @@ $(function() {
         },
         refreshRoomTp: function() { // 更新模版示意图片
             var activePara = $('.stage .room-actived ').attr('class').split(' ')[1].slice(11) - 1; // 获取房间tp相关类名的序号
-            $('#tab_editFloor .room-tp_img').attr('src', room_tps[activePara].tpSrc); // 更新src
+            $('#tab_editFloor .room-tp_img').attr('src', golbalTp.room_tps[activePara].imgSrc); // 更新src
         }
     };
 
@@ -212,10 +166,10 @@ $(function() {
                 stage.showEditFloor(); // 显示仪表盘
                 action_bar.showRemFloorBtn(); // 显示层删除按钮
                 stage.timer = setTimeout(function() {
-                    $('tab_editRoom').hide();
+                    stage.showEditFloor(); // 显示仪表盘
                     sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
                     $('.dashboard .nav-tabs a[href="#tab_editFloor"]').tab('show'); // 激活装修楼层面板
-                }, 200);
+                }, 250);
             });
         },
         showEditFloor: function() { // 显示仪表盘
@@ -239,10 +193,10 @@ $(function() {
                 if (stage.timer) {
                     clearTimeout(stage.timer);
                     stage.timer = null;
+                    stage.showEditFloor(); // 显示仪表盘
+                    sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
+                    $('.dashboard .nav-tabs a[href="#tab_editRoom"]').tab('show'); // 激活房间楼层面板
                 }
-                $('tab_editFloor').hide();
-                sidebar.editRefresher.refreshDashboard(); // 更新仪表盘参数
-                $('.dashboard .nav-tabs a[href="#tab_editRoom"]').tab('show'); // 激活房间楼层面板
             });
         }
     };
@@ -261,7 +215,7 @@ $(function() {
         selectNewFloorTp: function() { // 选择要新增一层的模板
             $('.newFloor_modal').on('click', '.floor-tp > a', function() {
                 var tpIndex = $(this).parent().attr('id').slice(8) - 1;
-                edm_page.append(floor_tps[tpIndex]);
+                edm_page.append(golbalTp.floor_tps[tpIndex].html);
                 $('#modal-newFloor').modal('hide');
             });
         },
@@ -269,7 +223,7 @@ $(function() {
             $('#modal-changeRoom').on('click', '.room-tp > a', function() {
                 var room_active_index = $('.room-actived').parent().index();
                 var tpIndex = $(this).parent().attr('id').slice(7) - 1;
-                $('.floor-actived .room').replaceWith(room_tps[tpIndex].tpContent);
+                $('.floor-actived .room').replaceWith(golbalTp.room_tps[tpIndex].html);
                 $('.floor-actived').children().children().children().eq(room_active_index).children().addClass('room-actived'); // 保持房间激活
                 sidebar.editRefresher.refreshDashboardFloorPara(); // 更新仪表盘参数
                 $('#modal-changeRoom').modal('hide');
