@@ -286,5 +286,5 @@ $(function() {
     modal.selectNewFloorTp(); // 选择要新增一层的模板
     modal.changeRoomsTp(); // 选择要替换的整层房间模板
     modal.delFloor(); // 删除当前层
-
+    
 });
