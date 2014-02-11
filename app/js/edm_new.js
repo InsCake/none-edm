@@ -67,17 +67,6 @@ $(function() {
             $('.sidebar').on('click', '.dashboard .room-tp_a', function() {
                 $('#modal-changeRoom').modal('toggle');
             });
-        },
-        getFloorTpName: function(floor_tpCount) {
-            var floorCateCount = floor_tpCount.slice(0, 2);
-            switch (floorCateCount) {
-                case '01':
-                    return 'cate_goods';
-                    break;
-                case '02':
-                    return 'cate_banner';
-                    break;
-            }
         }
     };
     sidebar.editFloor.showRoomTpModal();
@@ -88,17 +77,6 @@ $(function() {
                 var newSrc = $('#room-img-url').val();
                 $('.room-actived img[alt=item-image]').attr('src', newSrc);
             });
-        },
-        getRoomTpName: function(room_tpCount) {
-            var roomCateCount = room_tpCount.slice(0, 2);
-            switch (roomCateCount) {
-                case '01':
-                    return 'cate_goods';
-                    break;
-                case '02':
-                    return 'cate_banner';
-                    break;
-            }
         }
     };
     sidebar.editRoom.changeImgUrl();
@@ -113,7 +91,7 @@ $(function() {
         refreshDashboardFloorTp: function() { // 更新仪表盘模板
             // 刷新楼层编辑器
             var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
-            var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
+            var floorTpName = golbalTp.getFloorTpName(floor_tpCount);
             $('#tab_editFloor').html('');
             for (var i = 0; i < golbalTp.sidebar_floorEditor[floorTpName].length; i++) {
                 $('#tab_editFloor').append(golbalTp.sidebar_floorEditor[floorTpName][i].content);
@@ -122,7 +100,7 @@ $(function() {
         refreshDashboardRoomTp: function() { // 更新仪表盘模板
             // 刷新房间编辑器
             var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(8, 10);
-            var roomTpName = sidebar.editRoom.getRoomTpName(room_tpCount);
+            var roomTpName = golbalTp.getRoomTpName(room_tpCount);
             $('#tab_editRoom').html('');
             for (var i = 0; i < golbalTp.sidebar_roomEditor[roomTpName].length; i++) {
                 $('#tab_editRoom').append(golbalTp.sidebar_roomEditor[roomTpName][i].content);
@@ -130,14 +108,14 @@ $(function() {
         },
         refreshDashboardFloorPara: function() { // 更新仪表盘参数 ***
             var floor_tpCount = $('.stage .floor-actived').attr('class').split(' ')[1].slice(9, 11); // 获取楼层tp相关类名的序号
-            var floorTpName = sidebar.editFloor.getFloorTpName(floor_tpCount);
+            var floorTpName = golbalTp.getFloorTpName(floor_tpCount);
             for (var i = 0; i < golbalTp.sidebar_floorEditor[floorTpName].length; i++) {
                 sidebar.editRefresher.doSwitchRefreshWhich(golbalTp.sidebar_floorEditor[floorTpName][i]); // 分支判断具体刷新那个参数
             }
         },
         refreshDashboardRoomPara: function() {
             var room_tpCount = $('.stage .room-actived').attr('class').split(' ')[1].slice(8, 10);
-            var roomTpName = sidebar.editRoom.getRoomTpName(room_tpCount);
+            var roomTpName = golbalTp.getRoomTpName(room_tpCount);
             for (var i = 0; i < golbalTp.sidebar_roomEditor[roomTpName].length; i++) {
                 sidebar.editRefresher.doSwitchRefreshWhich(golbalTp.sidebar_roomEditor[roomTpName][i]); // 分支判断具体刷新那个参数
             }
