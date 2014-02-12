@@ -77,9 +77,16 @@ $(function() {
                 var newSrc = $('#room-img-url').val();
                 $('.room-actived img[alt=item-image]').attr('src', newSrc);
             });
+        },
+        changeGoodLinkHref: function() { // 修改商品链接
+            $('.sidebar').on('click', '.dashboard .edit_good-link-href-btn', function() {
+                var newHref = $('#good-link-href').val();
+                $('.room-actived a').attr('href', newHref);
+            });
         }
     };
-    sidebar.editRoom.changeImgUrl();
+    sidebar.editRoom.changeImgUrl(); // 修改图片
+    sidebar.editRoom.changeGoodLinkHref(); // 修改商品链接
 
     sidebar.editRefresher = { // 子集-侧边栏刷新器 -----------------------
         refreshDashboard: function() { // 更新仪表盘
@@ -128,15 +135,22 @@ $(function() {
                 case 'edit_room-tp':
                     sidebar.editRefresher.refreshRoomTp(); // 更新模版示意图片
                     break;
+                case 'edit_good-link-href':
+                    sidebar.editRefresher.refreshGoodLinkUrl(); // 更新商品链接
+                    break;
             }
+        },
+        refreshRoomTp: function() { // 更新模版示意图片
+            var activePara = $('.stage .room-actived ').attr('class').split(' ')[1].slice(11) - 1; // 获取房间tp相关类名的序号
+            $('#tab_editFloor .room-tp_img').attr('src', golbalTp.room_tps[activePara].imgSrc); // 更新src
         },
         refreshImgUrl: function() { // 刷新主图片地址
             var activePara = $('.stage .room-actived img[alt=item-image]').attr('src');
             $('.dashboard #room-img-url').val(activePara);
         },
-        refreshRoomTp: function() { // 更新模版示意图片
-            var activePara = $('.stage .room-actived ').attr('class').split(' ')[1].slice(11) - 1; // 获取房间tp相关类名的序号
-            $('#tab_editFloor .room-tp_img').attr('src', golbalTp.room_tps[activePara].imgSrc); // 更新src
+        refreshGoodLinkUrl: function() { // 刷新商品链接
+            var activePara = $('.stage .room-actived a').attr('href');
+            $('.dashboard #good-link-href').val(activePara);
         }
     };
 
