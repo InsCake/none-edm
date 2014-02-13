@@ -26,17 +26,24 @@ $(function() {
                 $('#modal-cfmRemFloor').modal('toggle');
                 var clone_floorToRemove = $('.stage .floor-actived').clone();
                 $('#modal-cfmRemFloor .floorToRemove').html('').append(clone_floorToRemove);
+                $('#modal-cfmRemFloor .needToRemove').remove();
             });
         },
         showNewFloorModal: function() { // 显示新建楼层弹窗
             $('.action_bar').on('click', '#newFloor_btn', function() {
                 $('#modal-newFloor').modal('toggle');
             });
+        },
+        downloadEDM: function() { // 下载EDM
+            $('.action_bar').on('click', '#downloadEDM_btn', function() {
+                alert();
+            });
         }
     };
     action_bar.stopPropa(); // 阻止冒泡
     action_bar.isDelActivedFloor(); // 弹出模态窗以确认是否删除激活层
     action_bar.showNewFloorModal(); // 显示新建楼层弹窗
+    action_bar.downloadEDM(); // 下载EDM
 
 
     // sidebar object --------------------------------------------------------------------
@@ -141,7 +148,7 @@ $(function() {
             }
         },
         refreshRoomTp: function() { // 更新模版示意图片
-            var activePara = $('.stage .room-actived ').attr('class').split(' ')[1].slice(11) - 1; // 获取房间tp相关类名的序号
+            var activePara = $('.stage .room-actived').attr('class').split(' ')[1].slice(11) - 1; // 获取房间tp相关类名的序号
             $('#tab_editFloor .room-tp_img').attr('src', golbalTp.room_tps[activePara].imgSrc); // 更新src
         },
         refreshImgUrl: function() { // 刷新主图片地址

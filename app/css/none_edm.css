@@ -12,7 +12,7 @@ body            { background-color: #f3f3f3; }
 
 /* page - new --------------------------------------------------------------- */
 /* container */
-.new_edm            { padding-top: 50px; width: 980px; margin: 0 auto; }
+.new_edm            { padding-top: 50px; width: 980px; margin: 0 auto; position: relative; }
 
 /* action_bar */
 .action_bar         { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 1px 2px #bbb; margin-bottom: 20px; background-color: #444; }
@@ -45,5 +45,16 @@ body            { background-color: #f3f3f3; }
 .stage              { box-shadow: 0 2px 25px #bbb; margin-left: 1%; width: 650px; min-height: 200px; overflow-x: hidden; background-color: #fff; }
 .stage > table      { background-color: #fff; margin: 0 auto; font-size: 12px; font-family: arial; color: #333; }
 
-.stage .floor-actived		{ outline: 1px solid #4aabff; }
+.stage .floor-actived		{ outline: 1px solid #4aabff; margin-top: 1px; }
 .stage .room-actived        { outline: 2px solid #4aabff; }
+
+.stage .floor 				{ margin-top: 1px; }
+.stage .room 				{ position: relative; }
+
+.stage .fa-angle-up			{ left: 658px; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin-top: 5px; }
+.stage .fa-angle-down		{ left: 658px; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin-top: 29px; }
+.stage .fa-angle-left		{ left: 50%; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin: -20px 0 0 -24px; padding-right: 1px; }
+.stage .fa-angle-right		{ left: 50%; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin: -20px 0 0 1px; padding-right: 1px; }
+.stage .fa 					{ display: block; position: absolute; text-align: center; cursor: pointer; top: auto; background-color: rgba(235, 235, 235, 0.9); }
+.stage .fa:hover 			{ background-color: rgba(255, 255, 255, 1); z-index: 1000; box-shadow: 0 0 8px #aaa; }
+
