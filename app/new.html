@@ -10,6 +10,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="js/vendor/google-code-prettify/prettify.css" />
     <link rel="stylesheet" type="text/css" href="css/none_edm.css">
 </head>
 
@@ -20,25 +21,16 @@
         <!-- action_bar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <nav class="action_bar">
             <div class="btn-group">
-                <button type="button" class="btn btn-default">
-                    <i class="fa fa-code"></i> 
+                <button type="button" id="newFloor_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-newFloor">
+                    <i class="glyphicon glyphicon-align-justify"></i>+
                 </button>
-                <button type="button" id="newFloor_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-newFloor">层 +1</button>
-
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        Dropdown
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Dropdown link</a>
-                        </li>
-                        <li><a href="#" id="getJsonTest">getJsonTest</a>
-                        </li>
-                    </ul>
-                </div>
+                <button type="button" id="showSaveEDM_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-saveEDM">
+                    <i class="glyphicon glyphicon-floppy-save"></i> 
+                </button>
+                <button type="button" class="btn btn-default">
+                    <i class="glyphicon glyphicon-globe"></i> 
+                </button>
             </div>
-
             <button type="button" class="btn btn-default remFloor-btn">删除这层</button>
         </nav>
 
@@ -50,9 +42,9 @@
                 <div class="dashboard">
                     <!-- tabs -->
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab_editFloor" data-toggle="pill">装修楼层</a>
+                        <li class="active"><a href="#tab_editFloor" data-toggle="pill">楼层</a>
                         </li>
-                        <li><a href="#tab_editRoom" data-toggle="pill">装修房间</a>
+                        <li><a href="#tab_editRoom" data-toggle="pill">房间</a>
                         </li>
                     </ul>
                     <!-- tab-content -->
@@ -100,110 +92,117 @@
             <!-- 头部 -->
 
             <div class="edm_page">
-                <table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_3101">
+                <table style="margin:0 auto;font-size:12px;font-family:arial;color:#333;" cellpadding="0" cellspacing="0" width="650">
                     <tr>
                         <td>
-                            <table cellspacing="0" cellpadding="0" style="width:100%" class="room room_tp_3101">
+                            <table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_3101">
                                 <tr>
                                     <td>
-                                        <img src="http://d8.yihaodianimg.com/N03/M01/34/E3/CgQCtFLKyAWAULg-AAEgByM2dg897100.jpg" width="650" height="253" alt="item-image">
+                                        <table cellspacing="0" cellpadding="0" style="width:100%" class="room room_tp_3101">
+                                            <tr>
+                                                <td>
+                                                    <img src="http://d8.yihaodianimg.com/N03/M01/34/E3/CgQCtFLKyAWAULg-AAEgByM2dg897100.jpg" width="650" height="253" alt="item-image">
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
                             </table>
-                        </td>
-                    </tr>
-                </table>
-                <table cellspacing="0" cellpadding="0" style="width:100%;" class="floor floor_tp_0101">
-                    <tr>
-                        <td width="10"></td>
-                        <td width="150">
-                            <table cellspacing="0" cellpadding="0" class="room room_tp_0102" style="width:100%;text-align:center;">
+                            <table cellspacing="0" cellpadding="0" style="width:100%;" class="floor floor_tp_0101">
                                 <tr>
-                                    <td height="10"></td>
-                                </tr>
-                                <tr>
-                                    <td width="5"></td>
-                                    <td>
-                                        <a href="javascript:void();">
-                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
-                                        </a>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr class="need-remove">
+                                                <td><i class="fa fa-angle-left"></i>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
-                                    <td width="5"></td>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="10"></td>
                                 </tr>
-                                <tr>
-                                    <td height="10"></td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa fa-angle-left"></i><i class="fa fa-angle-right"></i>
+                                <tr class="need-remove">
+                                    <td><i class="fa fa-angle-up"></i>
+                                        <i class="fa fa-angle-down"></i>
                                     </td>
                                 </tr>
                             </table>
-                        </td>
-                        <td width="10"></td>
-                        <td width="150">
-                            <table cellspacing="0" cellpadding="0" class="room room_tp_0102" style="width:100%;text-align:center;">
-                                <tr>
-                                    <td height="10"></td>
-                                </tr>
-                                <tr>
-                                    <td width="5"></td>
-                                    <td>
-                                        <a href="javascript:void();">
-                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
-                                        </a>
-                                    </td>
-                                    <td width="5"></td>
-                                </tr>
-                                <tr>
-                                    <td height="10"></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="10"></td>
-                        <td width="150">
-                            <table cellspacing="0" cellpadding="0" class="room room_tp_0102" style="width:100%;text-align:center;">
-                                <tr>
-                                    <td height="10"></td>
-                                </tr>
-                                <tr>
-                                    <td width="5"></td>
-                                    <td>
-                                        <a href="javascript:void();">
-                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
-                                        </a>
-                                    </td>
-                                    <td width="5"></td>
-                                </tr>
-                                <tr>
-                                    <td height="10"></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="10"></td>
-                        <td width="150">
-                            <table cellspacing="0" cellpadding="0" class="room room_tp_0102" style="width:100%;text-align:center;">
-                                <tr>
-                                    <td height="10"></td>
-                                </tr>
-                                <tr>
-                                    <td width="5"></td>
-                                    <td>
-                                        <a href="javascript:void();">
-                                            <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
-                                        </a>
-                                    </td>
-                                    <td width="5"></td>
-                                </tr>
-                                <tr>
-                                    <td height="10"></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="10"></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-angle-up"></i>
-                            <i class="fa fa-angle-down"></i>
                         </td>
                     </tr>
                 </table>
@@ -353,11 +352,46 @@
         </div>
         <!-- /.modal -->
 
+        <!-- Modal saveEDM_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="modal fade" id="modal-saveEDM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog saveEDM_modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <a href="" class="btn btn-primary btn-lg doSaveEDM_btn" role="button" download="EDM_name">
+                            <i class="glyphicon glyphicon-download-alt"></i>&nbsp;&nbsp;下载&nbsp;EDM&nbsp;到本地</a>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li><a href="#EDM-preview" data-toggle="tab">预览</a>
+                            </li>
+                            <li><a href="#EDM-code" data-toggle="tab">代码</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane" id="EDM-preview"></div>
+                            <div class="tab-pane" id="EDM-code">
+                                <pre class="prettyprint lang-css"></pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
         <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
         <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
         </script>
         <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/google-code-prettify/prettify.js"></script>
         <script src="js/edm_new.js"></script>
         <script src="js/edm_new_templates.js"></script>
 

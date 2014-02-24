@@ -2,6 +2,34 @@ $(function() {
 
     var edm_page = $('.stage .edm_page'); //edm container
 
+    // tools  -------------------------------------------------------------------
+    var tools = {
+        html_encode: function(str) {
+            var s = "";
+            if (str.length == 0) return "";
+            s = str.replace(/&/g, "&gt;");
+            s = s.replace(/</g, "&lt;");
+            s = s.replace(/>/g, "&gt;");
+            s = s.replace(/    /g, "");
+            s = s.replace(/\'/g, "&#39;");
+            s = s.replace(/\"/g, "&quot;");
+            s = s.replace(/\n/g, "");
+            return s;
+        },
+        html_decode: function(str) {
+            var s = "";
+            if (str.length == 0) return "";
+            s = str.replace(/&gt;/g, "&");
+            s = s.replace(/&lt;/g, "<");
+            s = s.replace(/&gt;/g, ">");
+            s = s.replace(/&nbsp;/g, " ");
+            s = s.replace(/&#39;/g, "\'");
+            s = s.replace(/&quot;/g, "\"");
+            s = s.replace(/<br>/g, "\n");
+            return s;
+        }
+    };
+
     // document event --------------------------------------------------------------------
     $(document).on('click', function() {
         $('.remFloor-btn').hide(); // 隐藏层删除按钮
@@ -34,16 +62,41 @@ $(function() {
                 $('#modal-newFloor').modal('toggle');
             });
         },
-        downloadEDM: function() { // 下载EDM
-            $('.action_bar').on('click', '#downloadEDM_btn', function() {
-                alert();
+        showSaveEDMModal: function() { // 显示保存EDM弹窗
+            $('.action_bar').on('click', '#showSaveEDM_btn', function() {
+                $('#modal-saveEDM').modal('toggle');
+                var edm_html = action_bar.replaceAllUseless();
+                action_bar.creatEDMBlob(edm_html); // 创建要下载的EDM文件（html）
+                action_bar.refreshEDMPreview(edm_html); // 刷新要下载的EDM 页面预览 和 代码预览
             });
+        },
+        creatEDMBlob: function(edm_html) { // 创建要下载的EDM文件（html）
+            window.URL = window.webkitURL || window.URL;
+            var bb = new Blob([edm_html], {
+                type: 'text/html'
+            });
+            $('#modal-saveEDM .doSaveEDM_btn').attr('href', window.URL.createObjectURL(bb));
+        },
+        refreshEDMPreview: function(edm_html) { // 刷新要下载的EDM 页面预览 和 代码预览
+            $('#modal-saveEDM #EDM-preview').html(edm_html);
+            $('#modal-saveEDM #EDM-code pre').html(tools.html_encode(edm_html));
+            window.prettyPrint();
+            $('#modal-saveEDM #EDM-code pre').removeClass('prettyprinted');
+            $('#modal-saveEDM .tab-pane').add($('#modal-saveEDM .nav-tabs li')).removeClass('active');
+        },
+        replaceAllUseless: function() {
+            var edm_page = $('.edm_page').clone();
+            edm_page.find('.need-remove').remove();
+            var un_edm_html = edm_page.html();
+            console.log(un_edm_html);
+            var edm_html = un_edm_html.replace(/contenteditable="true"/g, '');
+            return edm_html;
         }
     };
     action_bar.stopPropa(); // 阻止冒泡
     action_bar.isDelActivedFloor(); // 弹出模态窗以确认是否删除激活层
     action_bar.showNewFloorModal(); // 显示新建楼层弹窗
-    action_bar.downloadEDM(); // 下载EDM
+    action_bar.showSaveEDMModal(); // 显示保存EDM弹窗
 
 
     // sidebar object --------------------------------------------------------------------
