@@ -1,0 +1,39 @@
+<section>
+	<table ng-repeat="floor in floors" border="1">
+		<tr>
+			<td ng-repeat="room in floor.rooms" ng-switch on="roomSelect{{floor.id}}">
+				<table ng-switch-when="room101">
+					<tr>
+						<td><img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg"></td>
+					</tr>
+					<tr>
+						<td><span>牛X1</span></td>
+					</tr>
+				</table>
+				<table ng-switch-when="room102">
+					<tr>
+						<td><img src="http://ww3.sinaimg.cn/large/93884909gw1ea0x8ev6rbj20640640sp.jpg"></td>
+					</tr>
+					<tr>
+						<td><span>牛X2</span></td>
+					</tr>
+				</table>
+				<!--{<table>
+					<tr>
+						<td border="1">{{floor.id}}-{{room.id}}</td>
+					</tr>
+				</table>}-->
+			</td>
+		</tr>
+	</table>
+</section>
+<aside>
+	<button ng-click="newFloor()">添加一行</button>
+	<input type="number" ng-model="roomQuantity">
+	<select ng-model="roomSelect">
+		<option>room101</option>
+		<option>room102</option>
+	</select>
+	<!--<input type="number" ng-model="rowQuantity">-->
+</aside>
+

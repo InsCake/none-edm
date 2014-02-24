@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>none - EDM</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="js/vendor/google-code-prettify/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="css/none_edm.css">
+</head>
+
+<body>
+
+    <div class="new_edm">
+
+        <!-- action_bar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav class="action_bar">
+            <div class="btn-group">
+                <button type="button" id="newFloor_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-newFloor">
+                    <i class="glyphicon glyphicon-align-justify"></i>+
+                </button>
+                <button type="button" id="showSaveEDM_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-saveEDM">
+                    <i class="glyphicon glyphicon-floppy-save"></i> 
+                </button>
+                <button type="button" class="btn btn-default">
+                    <i class="glyphicon glyphicon-globe"></i> 
+                </button>
+            </div>
+            <button type="button" class="btn btn-default remFloor-btn">删除这层</button>
+        </nav>
+
+        <!-- sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <aside class="sidebar">
+            <div class="control_panel">
+                <!-- 仪表盘icon -->
+                <i class="fa fa-tachometer"></i>
+                <div class="dashboard">
+                    <!-- tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_editFloor" data-toggle="pill">楼层</a>
+                        </li>
+                        <li><a href="#tab_editRoom" data-toggle="pill">房间</a>
+                        </li>
+                    </ul>
+                    <!-- tab-content -->
+                    <div class="tab-content">
+
+                        <!-- 装修楼层 -->
+                        <form class="form-horizontal tab-pane in active" id="tab_editFloor" role="form">
+                            <!-- room template -->
+                            <!-- <div class="form-group edit_room-tp">
+                                <label for="inputEmail3" class="col-sm-3 control-label">房间模板</label>
+                                <div class="col-sm-9">
+                                    <a class="thumbnail room-tp_a" href="#modal-changeRoom" data-toggle="modal">
+                                        <img src="" class="room-tp_img">
+                                    </a>
+                                </div>
+                            </div> -->
+                        </form>
+
+                        <!-- 装修房间 -->
+                        <form class="form-horizontal tab-pane" id="tab_editRoom" role="form">
+                            <!-- image url -->
+                            <!-- <div class="form-group edit_image-url">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Image Url</label>
+                                <div class="input-group col-sm-9">
+                                    <input type="url" class="form-control input-sm" id="room-img-url" placeholder="粘贴你要替换的图片地址">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default input-sm icn-btn edit_image-url-btn" type="button"><i class="fa fa-retweet"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div> -->
+                        </form>
+
+                    </div>
+                </div>
+        </aside>
+
+        <!-- stage ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="stage">
+
+            <!-- 头部 -->
+            <div>
+                <img src="img/edm_header.png">
+            </div>
+            <!-- 头部 -->
+
+            <div class="edm_page">
+                <table style="margin:0 auto;font-size:12px;font-family:arial;color:#333;" cellpadding="0" cellspacing="0" width="650">
+                    <tr>
+                        <td>
+                            <table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_3101">
+                                <tr>
+                                    <td>
+                                        <table cellspacing="0" cellpadding="0" style="width:100%" class="room room_tp_3101">
+                                            <tr>
+                                                <td>
+                                                    <img src="http://d8.yihaodianimg.com/N03/M01/34/E3/CgQCtFLKyAWAULg-AAEgByM2dg897100.jpg" width="650" height="253" alt="item-image">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" style="width:100%;" class="floor floor_tp_0101">
+                                <tr>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr class="need-remove">
+                                                <td><i class="fa fa-angle-left"></i>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="10"></td>
+                                    <td width="150">
+                                        <table cellspacing="0" cellpadding="0" class="room room_tp_0101" style="width:100%;text-align:center;">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5"></td>
+                                                <td>
+                                                    <a href="javascript:void();">
+                                                        <img src="http://d6.yihaodianimg.com/N00/M08/F5/0D/CgQCtlJ686qAPNJmAAC2Pjy-aVU77301_200x200.jpg" style="line-height:100%;" border="0" width="140" height="140" alt="item-image">
+                                                    </a>
+                                                </td>
+                                                <td width="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="10"></td>
+                                </tr>
+                                <tr class="need-remove">
+                                    <td><i class="fa fa-angle-up"></i>
+                                        <i class="fa fa-angle-down"></i>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 尾部 -->
+            <div>
+                <img src="img/edm_footer.png">
+            </div>
+            <!-- 尾部 -->
+
+        </div>
+
+
+        <!-- Modal newFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="modal fade" id="modal-newFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog newFloor_modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModalLabel">添加一层</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="panel-group" id="newFloor_collapse">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#newFloor_collapse" href="#collapseOne">商品层</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4 floor-tp" id="floor-tp1">
+                                                <a href="javascript:void();" class="thumbnail">
+                                                    <img src="img/floor_tp1.png" alt="...">
+                                                </a>
+                                                <div class="caption">
+                                                    <h5>4个房间</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 floor-tp" id="floor-tp2">
+                                                <a href="javascript:void();" class="thumbnail">
+                                                    <img src="img/floor_tp2.png" alt="...">
+                                                </a>
+                                                <div class="caption">
+                                                    <h5>3个房间</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 floor-tp" id="floor-tp3">
+                                                <a href="javascript:void();" class="thumbnail">
+                                                    <img src="img/floor_tp3.png" alt="...">
+                                                </a>
+                                                <div class="caption">
+                                                    <h5>2个房间</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#newFloor_collapse" href="#collapseTwo">Banner层</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!-- Modal cfm-remFloor_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="modal fade" id="modal-cfmRemFloor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cfmRemFloor_modal">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4>确认要移除这一层吗？</h4>
+                        <div class="floorToRemove"></div>
+                        <!-- <p>...</p> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger" id="delFloor-btn">删除</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!-- Modal changeRoom_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="modal fade" id="modal-changeRoom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cfmRemFloor_modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModalLabel">选择房间模板</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4 room-tp" id="room-tp1">
+                                <a href="javascript:void();" class="thumbnail">
+                                    <img src="img/room_tp1.png" alt="...">
+                                </a>
+                                <div class="caption">
+                                    <p>仅有商品图片</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4 room-tp" id="room-tp2">
+                                <a href="javascript:void();" class="thumbnail">
+                                    <img src="img/room_tp2.png" alt="...">
+                                </a>
+                                <div class="caption">
+                                    <p>商品图片 + 商品名称</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4 room-tp" id="room-tp3">
+                                <a href="javascript:void();" class="thumbnail">
+                                    <img src="img/room_tp3.png" alt="...">
+                                </a>
+                                <div class="caption">
+                                    <p>商品图片 + 商品名称 + 价格</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!-- Modal saveEDM_modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="modal fade" id="modal-saveEDM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog saveEDM_modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <a href="" class="btn btn-primary btn-lg doSaveEDM_btn" role="button" download="EDM_name">
+                            <i class="glyphicon glyphicon-download-alt"></i>&nbsp;&nbsp;下载&nbsp;EDM&nbsp;到本地</a>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li><a href="#EDM-preview" data-toggle="tab">预览</a>
+                            </li>
+                            <li><a href="#EDM-code" data-toggle="tab">代码</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane" id="EDM-preview"></div>
+                            <div class="tab-pane" id="EDM-code">
+                                <pre class="prettyprint lang-css"></pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+        <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+        </script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/google-code-prettify/prettify.js"></script>
+        <script src="js/edm_new.js"></script>
+        <script src="js/edm_new_templates.js"></script>
+
+</body>
+
+</html>

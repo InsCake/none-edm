@@ -1,0 +1,69 @@
+
+/* common --------------------------------------------- by 不一 -------- */
+body            { background-color: #f3f3f3; }
+.none           { display:none; }
+
+/* box 模型*/
+.cssBorder-box  { -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+.flexBox        { display:moz-box; display:-webkit-box; display:-webkit-flex; display:flex; }
+.box_flex_0     { -moz-box-flex:0.0; -webkit-box-flex:0.0; -webkit-flex:none; flex:none; }
+.box_flex_1     { -moz-box-flex:1.0; -webkit-box-flex:1.0; -webkit-flex:1; flex:1; width:100%; }
+
+
+/* page - new --------------------------------------------------------------- */
+/* container */
+.new_edm            { padding-top: 50px; width: 980px; margin: 0 auto; position: relative; }
+
+/* action_bar */
+.action_bar         { position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; box-shadow: 0 1px 2px #bbb; background-color: #444; }
+.action_bar button,
+.action_bar a  		{ border: none; background-color: #373737; color: #fff; font-size: 16px; }
+.action_bar button:hover,
+.action_bar a:hover  		{ background-color: #474747; color: #f8f8f8; }
+.action_bar .remFloor-btn	{ position: absolute;  left: 50%; margin-left: -40px; display: none; }
+
+/* sidebar */
+.sidebar            { position: fixed; top:36px; right: 0; width: 320px; height: 100%; z-index: 1000; }
+.control_panel      { box-shadow: 0 1px 3px #bbb; width: 100%; height: 100%; min-height: 500px; background-color: #fff; padding: 15px; }
+.control_panel .tab-content				{ margin-top: 20px; }
+.control_panel > .fa-tachometer			{ position: absolute; top: 50%; left: 50%; font-size: 48px; margin: -48px 0 0 -24px; color: #888; transition: all 1s; /*text-shadow: -1px 0px 0px #777, 0px -1px 0px #777;*/ }
+.control_panel > .dashboard				{ display: none; }
+.control_panel .form-horizontal label	{ font-size: 12px; padding-right: 0; }
+.control_panel .form-group .input-group { padding-left: 15px; padding-right: 15px; }
+.control_panel .form-group .icn-btn     { line-height: 16px; }
+.control_panel .form-group .icn-btn i   { font-size: 16px; }
+
+#tab_editFloor .room-tp_img				{ min-height: 80px; max-height: 120px; }
+
+/* modal */
+.modal .newFloor_modal     	{ width: 800px; }
+.modal .cfmRemFloor_modal	{ width: 692px; }
+.modal .cfmRemFloor_modal .floorToRemove	{ width: 650px; overflow-x: hidden; }
+
+.modal #newFloor_collapse .panel-heading		{ padding: 0; }
+.modal #newFloor_collapse .panel-title > a		{ display: block; height: 100%; cursor: pointer; padding: 10px 15px; text-decoration: none; }
+.modal #newFloor_collapse .panel-title > a:hover{ background-color: #eee; }
+
+.modal .saveEDM_modal					{ width: 652px; }
+.modal .saveEDM_modal .modal-header		{ border: none; }
+.modal .saveEDM_modal .modal-body 		{ padding: 0; }
+.modal .saveEDM_modal .tab-content > div{ padding: 15px 0; }
+.modal .saveEDM_modal pre 				{ border: none; }
+
+/* stage */
+.stage              { box-shadow: 0 2px 25px #bbb; margin-left: 1%; width: 650px; min-height: 200px; overflow-x: hidden; background-color: #fff; }
+.stage > table      { background-color: #fff; margin: 0 auto; font-size: 12px; font-family: arial; color: #333; }
+
+.stage .floor-actived		{ outline: 1px solid #4aabff; margin-top: 1px; }
+.stage .room-actived        { outline: 2px solid #4aabff; }
+
+.stage .floor 				{ margin-top: 1px; }
+.stage .room 				{ position: relative; }
+
+.stage .fa-angle-up			{ left: 658px; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin-top: -50px; }
+.stage .fa-angle-down		{ left: 658px; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin-top: -26px; }
+.stage .fa-angle-left		{ left: 50%; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin: -5px 0 0 -24px; padding-right: 1px; }
+.stage .fa-angle-right		{ left: 50%; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin: -5px 0 0 1px; padding-right: 1px; }
+.stage .fa 					{ display: block; position: absolute; text-align: center; cursor: pointer; top: auto; background-color: rgba(235, 235, 235, 0.9); }
+.stage .fa:hover 			{ background-color: rgba(255, 255, 255, 1); z-index: 1000; box-shadow: 0 0 8px #aaa; }
+
