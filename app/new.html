@@ -21,13 +21,13 @@
         <!-- action_bar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <nav class="action_bar">
             <div class="btn-group">
-                <button type="button" id="newFloor_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-newFloor">
+                <button type="button" id="newFloor_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-newFloor" title="添加一层">
                     <i class="glyphicon glyphicon-align-justify"></i>+
                 </button>
-                <button type="button" id="showSaveEDM_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-saveEDM">
+                <button type="button" id="showSaveEDM_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-saveEDM" title="保存">
                     <i class="glyphicon glyphicon-floppy-save"></i> 
                 </button>
-                <button type="button" class="btn btn-default">
+                <button type="button" id="showEDMPreview_btn" class="btn btn-default" data-toggle="modal" data-target="#modal-saveEDM" title="预览">
                     <i class="glyphicon glyphicon-globe"></i> 
                 </button>
             </div>
@@ -92,9 +92,9 @@
             <!-- 头部 -->
 
             <div class="edm_page">
-                <table style="margin:0 auto;font-size:12px;font-family:arial;color:#333;" cellpadding="0" cellspacing="0" width="650">
+                <table class="edm_table" style="margin:0 auto;font-size:12px;font-family:arial;color:#333;" cellpadding="0" cellspacing="0" width="650">
                     <tr>
-                        <td>
+                        <td class="edm_td">
                             <table cellspacing="0" cellpadding="0" style="width:100%" class="floor floor_tp_3101">
                                 <tr>
                                     <td>
@@ -128,11 +128,6 @@
                                             <tr>
                                                 <td height="10"></td>
                                             </tr>
-                                            <tr class="need-remove">
-                                                <td><i class="fa fa-angle-left"></i>
-                                                    <i class="fa fa-angle-right"></i>
-                                                </td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td width="10"></td>
@@ -196,11 +191,6 @@
                                         </table>
                                     </td>
                                     <td width="10"></td>
-                                </tr>
-                                <tr class="need-remove">
-                                    <td><i class="fa fa-angle-up"></i>
-                                        <i class="fa fa-angle-down"></i>
-                                    </td>
                                 </tr>
                             </table>
                         </td>
