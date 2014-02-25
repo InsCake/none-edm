@@ -44,7 +44,7 @@ body            { background-color: #f3f3f3; }
 .modal #newFloor_collapse .panel-title > a		{ display: block; height: 100%; cursor: pointer; padding: 10px 15px; text-decoration: none; }
 .modal #newFloor_collapse .panel-title > a:hover{ background-color: #eee; }
 
-.modal .saveEDM_modal					{ width: 652px; }
+.modal .saveEDM_modal					{ width: 656px; }
 .modal .saveEDM_modal .modal-header		{ border: none; }
 .modal .saveEDM_modal .modal-body 		{ padding: 0; }
 .modal .saveEDM_modal .tab-content > div{ padding: 15px 0; }
@@ -60,10 +60,14 @@ body            { background-color: #f3f3f3; }
 .stage .floor 				{ margin-top: 1px; }
 .stage .room 				{ position: relative; }
 
+.stage .fa-trash-o		    { left: 658px; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin-top: -80px; color: #c00; }
+.stage .fa.fa-trash-o:hover	{ color: #fff; background-color: #d9534f; }
 .stage .fa-angle-up			{ left: 658px; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin-top: -50px; }
 .stage .fa-angle-down		{ left: 658px; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin-top: -26px; }
 .stage .fa-angle-left		{ left: 50%; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin: -5px 0 0 -24px; padding-right: 1px; }
 .stage .fa-angle-right		{ left: 50%; width: 23px; height: 23px; line-height: 23px; box-shadow: 0 0 4px #aaa; margin: -5px 0 0 1px; padding-right: 1px; }
-.stage .fa 					{ display: block; position: absolute; text-align: center; cursor: pointer; top: auto; background-color: rgba(235, 235, 235, 0.9); }
-.stage .fa:hover 			{ background-color: rgba(255, 255, 255, 1); z-index: 1000; box-shadow: 0 0 8px #aaa; }
+.stage .fa,
+.stage .glyphicon 			{ display: block; position: absolute; z-index: 500; font-size: 16px; text-align: center; cursor: pointer; top: auto; background-color: rgba(235, 235, 235, 0.9); }
+.stage .fa:hover,
+.stage .glyphicon:hover 	{ background-color: rgba(255, 255, 255, 1); z-index: 1000; box-shadow: 0 0 8px #aaa; }
 
